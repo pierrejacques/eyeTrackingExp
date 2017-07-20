@@ -1,4 +1,4 @@
-function [LCSL, ED, NED] = LCS()
+function [LCSmax, LCSmean, LCS, seq] = seqEntropy()
 load data
 % 根据AOImap和fixation产生初始化序列
 for pic = pics
@@ -6,11 +6,14 @@ for pic = pics
     for user = users
         seqMat = [];
         pointer = 0;
-        mat = fixation{user, pic};
+        mat = fixations{user, pic};
         n = size(mat, 1);
         for i = 1:n
-            x = mat(n, 3);
-            y = mat(n, 4);
+            if pointer > 20 % seqLengthThreshold
+                break;
+            end
+            x = mat(i, 3);
+            y = mat(i, 4);
             if isValid(x, y) && map(x, y) > 0
                 pointer = pointer + 1;
                 seqMat(pointer) = map(x, y);
@@ -22,8 +25,8 @@ end
 
 % 计算LCS， 编辑距离和标准化编辑距离
 for pic = pics
-    LCSLmat = zeros(length(users));
-    EDmat = LCSLmat;
+    LCSmat = zeros(length(users));
+    EDmat = LCSmat;
     NEDmat = EDmat;
     n = length(users);
     for user1 = 1:n
@@ -31,22 +34,28 @@ for pic = pics
             seq1 = seq{user1, pic};
             seq2 = seq{user2, pic};
             val = LCSlength(seq1, seq2);
-            LCSLmat(user1, user2) = val;
-            LCSLmat(user2, user1) = val
-            EDmat(user1, user2) = length(seq1) + length(seq2) - 2*val;
-            EDmat(user2, user1) = length(seq1) + length(seq2) - 2*val;
-            NEDmat(user1, user2) = (length(seq1) + length(seq2) - 2*val)/(length(seq1) + length(seq2));
-            NEDmat(user2, user1) = (length(seq1) + length(seq2) - 2*val)/(length(seq1) + length(seq2));
+            LCSmat(user1, user2) = val;
+            LCSmat(user2, user1) = val;
+%             EDmat(user1, user2) = length(seq1) + length(seq2) - 2*val;
+%             EDmat(user2, user1) = length(seq1) + length(seq2) - 2*val;
+%             NEDmat(user1, user2) = (length(seq1) + length(seq2) - 2*val)/(length(seq1) + length(seq2));
+%             NEDmat(user2, user1) = (length(seq1) + length(seq2) - 2*val)/(length(seq1) + length(seq2));
         end
     end
-    LCSL{pic} = LCSLmat;
-    ED{pic} = EDmat;
-    NED{pic} = NEDmat;
+    LCS{pic} = LCSmat;
+    diagMat = LCSmat.*diag(ones(1, n));
+    noDiagMat = LCSmat - diagMat;
+    LCSmean(pic) = mean(noDiagMat(:)); %不带对角
+%     LCSmean(pic) = (sum(noDiagMat(:)) + sum(diagMat(:))) / 30 / 29 * 2;
+%     %带对角
+    LCSmax(pic) = mean(max(noDiagMat));
+%     ED{pic} = EDmat;
+%     NED{pic} = NEDmat;
 end
 end
 
 
-function [val]=LCSlength(seq1,seq2)
+function [dist] = LCSlength(seq1,seq2)
 %对于Dir矩阵，0表示空，1表示向右，2表示向右下，3表示向下
 x=length(seq1);
 y=length(seq2);
@@ -101,4 +110,8 @@ else
     end
     dist=DPmatrix(1,1);
 end
+end
+
+function [bool] = isValid(x, y)
+bool = (x>0 && x<=1280 && y>0 && y<=800);
 end
