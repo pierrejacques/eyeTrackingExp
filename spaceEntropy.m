@@ -1,5 +1,5 @@
 function [out] = main(kernelType, static)
-% 缺省值
+% 输出沿时间的空间分布熵
 if nargin == 0
     kernelType = 'circle';
     static = 'area';
