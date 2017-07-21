@@ -1,12 +1,7 @@
-function [xStream, yStream] = spaceEntropy(kernelType, static)
+function [areaCell, entropyCell] = spaceEntropy(kernelType)
 % 输出沿时间的空间分布熵
 if nargin == 0
     kernelType = 'circle';
-    static = 'area';
-else
-    if nargin == 1
-        static = 'area';
-    end
 end
 load data
 
@@ -43,13 +38,16 @@ r = (size(kernel, 1) - 1)/2;
 
 % 计算关于时间的结果，42行，3000列
 dt = 1;
-for t = 1:dt:3000
-    if t == floor(t/100)*100
-        t
+parfor pic = 1:42 %
+    if pic == 5
+        continue
     end
-    for pic = pics
+    pic
+    entropyMat = zeros(3000);
+    areaMat = zeros(3000);
+    for t = 1:dt:3000
         canvas = zeros(1280, 800);
-        for user = users
+        for user = 1:30 %
             xMat = xStream{user, pic};
             yMat = yStream{user, pic};
             if length(xMat) < t
@@ -65,12 +63,11 @@ for t = 1:dt:3000
                 end
             end
         end
-        if strcmp(static, 'entropy')
-            out(pic, t:t + dt - 1) = entropy(canvas);
-        else
-            out(pic, t:t + dt - 1) = area(canvas);
-        end
+        entropyMat(t) = entropy(canvas);
+        areaMat(t) = area(canvas);
     end
+    entropyCell{pic} = entropyMat;
+    areaCell{pic} = areaMat;
 end
 
 
