@@ -13,12 +13,12 @@ load data
 % 转换fixations
 xStream = {};
 yStream = {};
-for pic  =pics
+for pic  = pics
     for user = users
         t = 1;
         xMat = [];
         yMat = [];
-        fixMat = fixations{users, pics};
+        fixMat = fixations{user, pic};
         n = size(fixMat, 1);
         for i = 1:n
             duration = fixMat(i, 2);
@@ -40,11 +40,13 @@ else
     kernel = gauss(20);
 end
 r = (size(kernel, 1) - 1)/2;
-    
+
 % 计算关于时间的结果，42行，3000列
-dt = 20;
+dt = 1;
 for t = 1:dt:3000
-    t
+    if t == floor(t/100)*100
+        t
+    end
     for pic = pics
         canvas = zeros(1280, 800);
         for user = users
@@ -55,15 +57,11 @@ for t = 1:dt:3000
             end
             x = xMat(t);
             y = yMat(t);
-            for dx = -r:r
-                for dy = -r:r
-                    if isValid(x + dx, y + dy)
-                        if strcmp(kernelType, 'circle')
-                            canvas(x + dx, y + dy) = or(canvas(x + dx, y + dy), kernel(r + 1 + dx, r + 1 + dy));
-                        else
-                            canvas(x + dx, y + dy) = canvas(x + dx, y + dy) + kernel(r + 1 + dx, r + 1 + dy);
-                        end
-                    end
+            if isValid(x, y)
+                if strcmp(kernelType, 'circle')
+                    canvas = kernelize('or', canvas, kernel, x, y);
+                else
+                    canvas = kernelize('and', canvas, kernel, x, y);
                 end
             end
         end
@@ -73,7 +71,7 @@ for t = 1:dt:3000
             out(pic, t:t + dt - 1) = area(canvas);
         end
     end
-end 
+end
 
 end
 
@@ -118,4 +116,23 @@ end
 
 function [bool] = isValid(x, y)
 bool = (x>0 && x<=1280 && y>0 && y<=800);
+end
+
+function out = kernelize(method, mat, kernel, x, y)
+d = size(kernel, 1);
+r = (d - 1) / 2;
+[xmax, ymax] = size(mat);
+xup = max(1, x-r);
+kxup = max(r-x+2, 1);
+xdown = min(xmax, x+r);
+kxdown = min(d + xmax - x - r, d);
+yleft = max(1, y-r);
+kyleft = max(r-y+2, 1);
+yright = min(ymax, y+r);
+kyright = min(d + ymax - y - r, d);
+if strcmp(method, 'or')
+    out = [mat(1:xup - 1, :); mat(xup:xdown, 1:yleft-1), or(mat(xup:xdown, yleft:yright), kernel(kxup:kxdown, kyleft:kyright)), mat(xup:xdown, yright + 1:ymax); mat(xdown + 1:xmax,:)];
+else
+    out = [mat(1:xup - 1, :); mat(xup:xdown, 1:yleft-1), mat(xup:xdown, yleft:yright)+ kernel(kxup:kxdown, kyleft:kyright), mat(xup:xdown, yright + 1:ymax); mat(xdown + 1:xmax,:)];
+end
 end
