@@ -1,4 +1,4 @@
-function [out] = spaceEntropy(kernelType, static)
+function [xStream, yStream] = spaceEntropy(kernelType, static)
 % 输出沿时间的空间分布熵
 if nargin == 0
     kernelType = 'circle';
@@ -43,37 +43,37 @@ r = (size(kernel, 1) - 1)/2;
     
 % 计算关于时间的结果，42行，3000列
 dt = 20;
-for t = 1:dt:3000
-    t
-    for pic = pics
-        canvas = zeros(1280, 800);
-        for user = users
-            xMat = xStream{user, pic};
-            yMat = yStream{user, pic};
-            if length(xMat) < t
-                continue;
-            end
-            x = xMat(t);
-            y = yMat(t);
-            for dx = -r:r
-                for dy = -r:r
-                    if isValid(x + dx, y + dy)
-                        if strcmp(kernelType, 'circle')
-                            canvas(x + dx, y + dy) = or(canvas(x + dx, y + dy), kernel(r + 1 + dx, r + 1 + dy));
-                        else
-                            canvas(x + dx, y + dy) = canvas(x + dx, y + dy) + kernel(r + 1 + dx, r + 1 + dy);
-                        end
-                    end
-                end
-            end
-        end
-        if strcmp(static, 'entropy')
-            out(pic, t:t + dt - 1) = entropy(canvas);
-        else
-            out(pic, t:t + dt - 1) = area(canvas);
-        end
-    end
-end 
+% for t = 1:dt:3000
+%     t
+%     for pic = pics
+%         canvas = zeros(1280, 800);
+%         for user = users
+%             xMat = xStream{user, pic};
+%             yMat = yStream{user, pic};
+%             if length(xMat) < t
+%                 continue;
+%             end
+%             x = xMat(t);
+%             y = yMat(t);
+%             for dx = -r:r
+%                 for dy = -r:r
+%                     if isValid(x + dx, y + dy)
+%                         if strcmp(kernelType, 'circle')
+%                             canvas(x + dx, y + dy) = or(canvas(x + dx, y + dy), kernel(r + 1 + dx, r + 1 + dy));
+%                         else
+%                             canvas(x + dx, y + dy) = canvas(x + dx, y + dy) + kernel(r + 1 + dx, r + 1 + dy);
+%                         end
+%                     end
+%                 end
+%             end
+%         end
+%         if strcmp(static, 'entropy')
+%             out(pic, t:t + dt - 1) = entropy(canvas);
+%         else
+%             out(pic, t:t + dt - 1) = area(canvas);
+%         end
+%     end
+% end 
 
 end
 
