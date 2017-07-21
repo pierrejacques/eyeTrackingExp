@@ -42,9 +42,8 @@ end
 r = (size(kernel, 1) - 1)/2;
     
 % 计算关于时间的结果，42行，3000列
-dt = 20;
-for t = 1:dt:3000
-    t
+mat = zeros(42, 3000);
+for t = 1:3000
     for pic = pics
         canvas = zeros(1280, 800);
         for user = users
@@ -68,9 +67,9 @@ for t = 1:dt:3000
             end
         end
         if strcmp(static, 'entropy')
-            out(pic, t:t + dt - 1) = entropy(canvas);
+            out(pic, t) = entropy(canvas);
         else
-            out(pic, t:t + dt - 1) = area(canvas);
+            out(pic, t) = area(canvas);
         end
     end
 end 
