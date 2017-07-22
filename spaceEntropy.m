@@ -37,17 +37,17 @@ end
 r = (size(kernel, 1) - 1)/2;
 
 % 计算关于时间的结果，42行，3000列
-dt = 1;
-parfor pic = 1:42 %
+dt = 10;
+parfor pic = 1:42
+    pic
     if pic == 5
         continue
     end
-    pic
-    entropyMat = zeros(3000);
-    areaMat = zeros(3000);
+    entropyMat = zeros(3000, 1);
+    areaMat = zeros(3000, 1);
     for t = 1:dt:3000
         canvas = zeros(1280, 800);
-        for user = 1:30 %
+        for user = 1:30
             xMat = xStream{user, pic};
             yMat = yStream{user, pic};
             if length(xMat) < t
@@ -63,8 +63,8 @@ parfor pic = 1:42 %
                 end
             end
         end
-        entropyMat(t) = entropy(canvas);
-        areaMat(t) = area(canvas);
+        entropyMat(t:t+dt-1) = entropy(canvas);
+        areaMat(t:t+dt-1) = area(canvas);
     end
     entropyCell{pic} = entropyMat;
     areaCell{pic} = areaMat;
