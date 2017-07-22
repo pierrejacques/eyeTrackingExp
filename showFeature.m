@@ -1,4 +1,4 @@
-function [r] = visualize(feature)
+function [r] = showFeature(feature)
 load data;
 category = category(pics);
 score = score(pics);
