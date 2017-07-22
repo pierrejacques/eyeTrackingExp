@@ -27,17 +27,14 @@ end
 
 % 计算关于时间的结果，42行，3000列
 dt = 10;
-parfor pic = 1:42
+for pic = pics
     pic
-    if pic == 5
-        continue
-    end
     entropyMat = zeros(3000, 1);
     areaMat = zeros(3000, 1);
     for t = 1:dt:3000
         t
         canvas = zeros(1280, 800);
-        for user = 1:30
+        for user =users
             xMat = xStream{user, pic};
             yMat = yStream{user, pic};
             if length(xMat) < t

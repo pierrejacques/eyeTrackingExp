@@ -1,0 +1,1 @@
+function [rmat] = checkSpaceEntropy()
