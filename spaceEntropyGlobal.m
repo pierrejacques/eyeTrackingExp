@@ -1,4 +1,4 @@
-function [areaMatCountOnly, entropyMatCountOnly, areaMat, entropyMat] = spaceEntropyGlobal(kernel)
+function [areaMat, entropyMatCountOnly, entropyMat] = spaceEntropyGlobal(kernel)
 % 输出kernel下的全时长指标，对fixation仅仅计次
 load data
 areaMatCountOnly = [];
@@ -22,7 +22,6 @@ for pic  = pics
             end
         end
     end
-    areaMatCountOnly(pic) = area(canvasCount);
     areaMat(pic) = area(canvas);
     entropyMatCountOnly(pic) = entropy(canvasCount);
     entropyMat(pic) = entropy(canvas);
