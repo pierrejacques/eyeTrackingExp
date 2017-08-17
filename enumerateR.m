@@ -9,13 +9,13 @@ else if nargin == 1
 end
 
 heatCell = {};
-weightCell = {};
+weightlessCell = {};
 discCell = {};
 
 for r = minR:maxR
     if mod(r, 3) == 0
         %À„gauss
-        [heatCell{r}, weightCell{r}, discCell{r}] = spaceEntropyGlobal(getKernel('gaussian', r/3));
+        [heatCell{r}, weightlessCell{r}, discCell{r}] = spaceEntropyGlobal(getKernel('gaussian', r/3));
     end
     
 end
