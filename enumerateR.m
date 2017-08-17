@@ -15,7 +15,6 @@ discCell = {};
 for r = minR:maxR
     if mod(r, 3) == 0
         %À„gauss
-        [heatCell{r}, weightlessCell{r}, discCell{r}] = spaceEntropyGlobal(getKernel('gaussian', r/3));
+        [discCell{r}, weightlessCell{r}, heatCell{r}] = spaceEntropyGlobal(getKernel('gaussian', r/3));
     end
-    
 end
