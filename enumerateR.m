@@ -12,7 +12,7 @@ heatCell = cell(maxR, 1);
 weightlessCell = cell(maxR, 1);
 discCell = cell(maxR, 1);
 
-minSigma = floor(minR / 3);
+minSigma = max(1, floor(minR / 3));
 maxSigma = floor(maxR / 3);
 for sigma = minSigma:maxSigma
    r = sigma * 3
