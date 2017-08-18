@@ -8,13 +8,13 @@ else if nargin == 1
     end
 end
 
-heatCell = {};
-weightlessCell = {};
-discCell = {};
+heatCell = cell(maxR, 1);
+weightlessCell = cell(maxR, 1);
+discCell = cell(maxR, 1);
 
-for r = minR:maxR
-    if mod(r, 3) == 0
-        %À„gauss
-        [discCell{r}, weightlessCell{r}, heatCell{r}] = spaceEntropyGlobal(getKernel('gaussian', r/3));
-    end
+minSigma = floor(minR / 3);
+maxSigma = floor(maxR / 3);
+for sigma = minSigma:maxSigma
+   r = sigma * 3
+   [discCell{sigma*3}, weightlessCell{sigma*3}, heatCell{sigma*3}] = spaceEntropyGlobal(getKernel('gaussian', sigma));
 end
