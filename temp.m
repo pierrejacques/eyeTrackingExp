@@ -2,13 +2,13 @@ discCell3 = {};
 weightlessCell3 = {};
 heatCell3 = {};
 
-for i = 1:90
-    discCell3{i} = discCell{i};
-    heatCell3{i} = heatCell{i};
-    weightlessCell3{i} = weightlessCell{i};
+for i = 1:300
+    discCell3{i} = disc{i};
+    heatCell3{i} = heat{i};
+    weightlessCell3{i} = weightless{i};
 end
-for i = 93:120
-    discCell3{i} = discCell2{i};
-    heatCell3{i} = heatCell2{i};
-    weightlessCell3{i} = weightlessCell2{i};
+for i = 300:400
+    discCell3{i} = discCell0{i};
+    heatCell3{i} = heatCell0{i};
+    weightlessCell3{i} = weightlessCell0{i};
 end
