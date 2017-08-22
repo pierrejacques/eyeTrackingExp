@@ -1,10 +1,9 @@
-function [dist,pos1,pos2]=commonDist(seq1,seq2)
-%¶ÔÓÚDir¾ØÕó£¬0±íÊ¾¿Õ£¬1±íÊ¾ÏòÓÒ£¬2±íÊ¾ÏòÓÒÏÂ£¬3±íÊ¾ÏòÏÂ
-a=seqStruct(seq1);
-b=seqStruct(seq2);
-x=a.length;
-y=b.length;
-if min(x,y)==0
+function [dist] = commonDist(seq1,seq2)
+%å¯¹äºDirçŸ©é˜µï¼Œ0è¡¨ç¤ºç©ºï¼Œ1è¡¨ç¤ºå‘å³ï¼Œ2è¡¨ç¤ºå‘å³ä¸‹ï¼Œ3è¡¨ç¤ºå‘ä¸‹
+x=length(seq1);
+y=length(seq2);
+
+if min(x, y)==0
     dist=0;
     same=[];
     DPmatrix=[];
@@ -15,7 +14,7 @@ else
     Dir=zeros(x,y);
     for i=x:-1:1
         for j=y:-1:1
-            if a.seqArr(i)==b.seqArr(j)
+            if seq1(i) == seq2(j)
                 same(i,j)=1;
             end
             if i==x && j==y
@@ -54,37 +53,5 @@ else
         end
     end
     dist=DPmatrix(1,1);
-%          dist=a.length+b.length-2*DPmatrix(1,1);
-%          dist=dist/(dist+DPmatrix(1,1));
-    
-    
-    %ÒÔÏÂËÑË÷×î³¤µÄÂ·¾¶
-    i=1;
-    j=1;
-    pos1=[];
-    pos2=[];
-    while i<=x && j<=y && Dir(i,j)~=0
-        if same(i,j)
-            pos1(length(pos1)+1)=i;
-            pos2(length(pos2)+1)=j;
-        end
-        if Dir(i,j)==1
-            j=j+1;
-        else
-            if Dir(i,j)==2
-                j=j+1;
-                i=i+1;
-            else
-                i=i+1;
-            end
-        end
-    end
-    if same(i,j)
-        pos1(length(pos1)+1)=i;
-        pos2(length(pos2)+1)=j;
-    end
-    
-    %ÒÔÏÂ¼ÆËã×ªÒÆµÄ´ú¼Û£¬¸ÃÖ¸±êÓÉÓÚ´æÔÚ½Ï¶àµÄÖØ¸´ĞÔ¼ÆËãµÄÄÑ¶È×îºÃÓ¦ÓÃÓÚÊ×´ïĞòÁĞµÄ¼ÆËã
-    
-    
+end
 end

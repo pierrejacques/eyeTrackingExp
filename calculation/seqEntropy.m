@@ -1,5 +1,7 @@
-function [LCSmax, LCSmean, LCS, seq] = seqEntropy()
-%最终改成输出编辑距离ED，归一编辑距离NED，共同距离CD，归一共同距离NCD，最长共同子序列长LCS，五个cell，每个单元是一个矩阵
+function [out, seq] = seqEntropy()
+%out是一个struct，包含五种距离，seq是序列矩阵（cell）
+%out包括：编辑距离ED，共同距离CD，最长共同子序列长LCS
+
 load data
 
 % 根据AOImap和fixation产生初始化序列
@@ -26,41 +28,41 @@ for pic = pics
 end
 
 % 计算LCS， 编辑距离和标准化编辑距离
+ED = {};
+CD = {};
+LCS = {};
+
 for pic = pics
+    EDmat = zeros(length(users));
+    CDmat = zeros(length(users));
     LCSmat = zeros(length(users));
-    EDmat = LCSmat;
-    NEDmat = EDmat;
     n = length(users);
     for user1 = 1:n
         for user2 = user1:n
             seq1 = seq{user1, pic};
             seq2 = seq{user2, pic};
-            val = LCSlength(seq1, seq2);
-            LCSmat(user1, user2) = val;
-            LCSmat(user2, user1) = val;
-            %             EDmat(user1, user2) = length(seq1) + length(seq2) - 2*val;
-            %             EDmat(user2, user1) = length(seq1) + length(seq2) - 2*val;
-            %             NEDmat(user1, user2) = (length(seq1) + length(seq2) - 2*val)/(length(seq1) + length(seq2));
-            %             NEDmat(user2, user1) = (length(seq1) + length(seq2) - 2*val)/(length(seq1) + length(seq2));
+            % 计算赋值
+            [EDmat(user1, user2)] = levenstein(seq1, seq2);
+            [CDmat(user1, user2), LCSmat(user1, user2)] = common(seq1, seq2);
+            % 矩阵自赋值
+            EDmat(user2, user1) = EDmat(user1, user2);
+            CDmat(user2, user1) = CDmat(user1, user2);
+            LCSmat(user2, user1) = LCSmat(user1, user2);
         end
     end
+    ED{pic} = EDmat;
+    CD{pic} = CDmat;
     LCS{pic} = LCSmat;
-    diagMat = LCSmat.*diag(ones(1, n));
-    noDiagMat = LCSmat - diagMat;
-    LCSmean(pic) = mean(noDiagMat(:)); %不带对角
-    %     LCSmean(pic) = (sum(noDiagMat(:)) + sum(diagMat(:))) / 30 / 29 * 2;
-    %     %带对角
-    LCSmax(pic) = mean(max(noDiagMat));
-    %     ED{pic} = EDmat;
-    %     NED{pic} = NEDmat;
 end
+out.ED = ED;
+out.CD = CD;
+out.LCS = LCS;
+
 end
 
-
-
-%标准编辑距离
-function [dist, cost]=levenstein(seq1,seq2)
-%dist为标准化的编辑距离，cost为编辑花费
+%标准编辑距离（with Insertion，Deletion，Substitution）
+function cost =levenstein(seq1, seq2)
+%dist为标准化的编辑距离(先不考虑了)，cost为编辑花费
 seq1 = seq1(:);
 seq2 = seq2(:);
 n1 = length(seq1);
@@ -85,23 +87,24 @@ for i=1 : n1 + 1
         end
     end
 end
-s=(n1 + n2 - mat(i,j))/2;
+%s=(n1 + n2 - mat(i,j))/2;
 % 这是归一化的编辑花费
-dist=(n1 + n2 -2*s)/(n1 + n2 - s);
+%dist=(n1 + n2 -2*s)/(n1 + n2 - s);
 % 这是编辑的花费
 cost=mat(i,j);
 end
 
-%LCS编辑距离
-function [dist] = LCSlength(seq1,seq2)
-%对于Dir矩阵，0表示空，1表示向右，2表示向右下，3表示向下
+%common编辑距离（with Insertion, Deletion)
+function [cost, common] = common(seq1,seq2)
+%dist是归一化的共同编辑距离
+%cost是编辑代价
+%common是共同长
+
 x=length(seq1);
 y=length(seq2);
+
 if min(x, y)==0
-    dist=0;
-    same=[];
-    DPmatrix=[];
-    Dir=[];
+    common = 0;
 else
     same=zeros(x,y);
     DPmatrix=zeros(x,y);
@@ -146,8 +149,10 @@ else
             end
         end
     end
-    dist=DPmatrix(1,1);
+    common=DPmatrix(1,1);
 end
+
+cost = x + y - 2*common;
 end
 
 %判断一个点是否落在画面内
