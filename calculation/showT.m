@@ -1,4 +1,4 @@
-function [rmat] = checkSpaceEntropy(entCell)
+function [rmat] = showT(entCell)
 
 load data
 figure()

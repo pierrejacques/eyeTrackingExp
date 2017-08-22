@@ -1,4 +1,4 @@
-function [out, seq] = seqEntropy()
+function [out, seq] = seqDist()
 %out是一个struct，包含五种距离，seq是序列矩阵（cell）
 %out包括：编辑距离ED，共同距离CD，最长共同子序列长LCS
 
