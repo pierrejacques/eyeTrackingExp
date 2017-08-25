@@ -23,9 +23,11 @@ for pic = pics
                 seqMat(pointer) = map(x, y);
             end
         end
+%         seqMat = seqMerge(seqMat); % 序列和并算法，把前后一致的序列合并起来
         seq{user, pic} = seqMat;
     end
 end
+
 
 % 计算LCS， 编辑距离和标准化编辑距离
 ED = {};
@@ -159,3 +161,18 @@ end
 function [bool] = isValid(x, y)
 bool = (x>0 && x<=1280 && y>0 && y<=800);
 end
+
+function newseq = seqMerge(seq)
+pointer = 0;
+newSeq = [];
+n = length(seq);
+last = -1;
+for i=1:n
+    if seq(i) ~= last
+        pointer = pointer + 1;
+        newseq(pointer) = seq(i);
+        last = seq(i);
+    end
+end
+end
+

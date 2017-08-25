@@ -12,7 +12,8 @@ for pic = pics
     end
 end
 
-% 转换为mat以加速计算, 注意，这个mat只有41列
+% 转换为mat以加速计算, 注意，这个mat只有40列
+entCell = entCell(pics);
 entMat = cell2mat(entCell);
 rmat = zeros(3000, 1);
 figure()

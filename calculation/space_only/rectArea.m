@@ -1,7 +1,12 @@
-function [area, cell] = spacePrior()
-% 计算fixation位置的鲜艳分布范围度量
+function [area] = rectArea(margin)
+% 计算fixation位置的外接矩形的面积，margin是扩张范围
+if nargin == 0
+    margin = 0;
+end
+
 load data
-cell = {};
+area = zeros(max(pics), 1);
+
 for pic = pics
     l = 1280;
     r = 1;
@@ -21,8 +26,7 @@ for pic = pics
             end
         end
     end
-    cell{pic} = [t, r, b, l];
-    area(pic) = (r - l)*(b - t);
+    area(pic) = (r - l + 2*margin)*(b - t + 2*margin);
 end
 end
 
