@@ -12,13 +12,14 @@ for pic = pics
     end
 end
 
-% 转换为mat以加速计算, 注意，这个mat只有40列
-entCell = entCell(pics);
-entMat = cell2mat(entCell);
 rmat = zeros(3000, 1);
-figure()
+figure();
 for t = 1:3000
-    rmat(t) = corr(score(pics)', entMat(t, :)');
+    entMat = [];
+    for pic = pics
+        entMat(pic) = entCell{pic}(t);
+    end
+    rmat(t) = corr(score(pics)', entMat(pics)');
 end
 plot(rmat);
     
