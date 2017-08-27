@@ -2,8 +2,9 @@ function [heat, weightless] = enumUser()
 % 这里的一切计算不归一
 
 for i = 1:30
+    i
     sample_users = sort(randperm(30, i));
-    [heat{i}, weightless{i}] = globalEntropy(sample_users)';
+    [heat{i}, weightless{i}] = globalEntropy(sample_users);
 end
 end
 
