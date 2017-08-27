@@ -26,7 +26,7 @@ end
 function percent = f_rate(c, f)
 percent = 0;
 for thres = f
-    rate = (sum(and(f>=thres, c==1)) + sum(and(f<thres, c==0)))/40;
+    rate = (sum(and(f>thres, c==1)) + sum(and(f<=thres, c==0)))/40;
     if rate >= 0.5 && rate > percent
         percent = rate;
     end
