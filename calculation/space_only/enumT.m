@@ -1,4 +1,4 @@
-function [weightless, disc, weightless_1, disc_1] = enumT()
+function [weightless, weightless_1] = enumT()
 %给出weightless在sigma=20和disc在r=50时的归一化的眼动熵
 load data
 t = cell(max(pics), 1); %t{pic}储存了网页pic的产生变化的时间轴
@@ -25,18 +25,13 @@ end
 
 %对t进行归并的同时，计算出每个t对应的眼动熵
 weightless = cell(max(pics), 1);
-disc = cell(max(pics), 1);
 weightless_1 = cell(max(pics), 1);
-disc_1 = cell(max(pics), 1);
 for pic = pics
     pic
     fix_count = 0;
     last_weightless = 0;
-    last_disc = 0;
     last_weightless_1 = 0;
-    last_disc_1 = 0;
     canvas_weightless = zeros(1280, 800);
-    canvas_disc = zeros(1280, 800);
     for t_val = 1:3000
         idxs = (t{pic} == t_val);
         xs = x{pic}(idxs);
@@ -45,14 +40,10 @@ for pic = pics
         fix_count = fix_count + n; % 更新总数
         if n > 0
             canvas_weightless = addCanvasWeightless(canvas_weightless, xs, ys);
-            canvas_disc = addCanvasDisc(canvas_disc, xs, ys);
             [last_weightless, last_weightless_1] = calcWeightless(canvas_weightless, fix_count);
-            [last_disc, last_disc_1] = calcDisc(canvas_disc, fix_count);
         end
         weightless{pic}(t_val) = last_weightless;
-        disc{pic}(t_val) = last_disc;
         weightless_1{pic}(t_val) = last_weightless_1;
-        disc_1{pic}(t_val) = last_disc_1;
     end
 end
 end
@@ -68,24 +59,8 @@ for idx = 1:length(xs)
 end
 end
 
-function canvas_out = addCanvasDisc(canvas_in, xs, ys)
-canvas_out = canvas_in;
-for idx = 1:length(xs)
-    x = xs(idx);
-    y = ys(idx);
-    if isValid(x, y)
-        canvas_out = kernelize(canvas_out, getKernel('disc', 55), x, y);
-    end
-end
-end
-
 function [ent, ent_1] = calcWeightless(canvas, count)
 ent = entropy(canvas);
-ent_1 = ent/log(count);
-end
-
-function [ent, ent_1] = calcDisc(canvas, count)
-ent = areaEntropy(canvas)/log(count);
 ent_1 = ent/log(count);
 end
 
@@ -130,11 +105,4 @@ if sum(vec) > 0
     p(p==0) = [];
     val = -sum(p.*log(p)/log(2));
 end
-end
-
-function [val] = areaEntropy(mat)
-vec = mat(:);
-vec(vec == 0) = [];
-val = length(vec) / 1280 / 800;
-val = log(val)/log(2);
 end
