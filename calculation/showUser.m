@@ -1,7 +1,6 @@
 function [rmat] = showUser(entCell)
 
 load data
-figure()
 hold on
 rmat = zeros(30, 1);
 for user = 2:30
