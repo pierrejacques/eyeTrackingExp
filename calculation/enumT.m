@@ -1,4 +1,4 @@
-function [weightless, weightless_1] = enumT()
+function [weightless, fix_sum] = enumT()
 %给出weightless在sigma=20和disc在r=50时的归一化的眼动熵
 load data
 t = cell(max(pics), 1); %t{pic}储存了网页pic的产生变化的时间轴
@@ -25,12 +25,11 @@ end
 
 %对t进行归并的同时，计算出每个t对应的眼动熵
 weightless = cell(max(pics), 1);
-weightless_1 = cell(max(pics), 1);
+fix_sum = cell(max(pics), 1);
 for pic = pics
     pic
     fix_count = 0;
     last_weightless = 0;
-    last_weightless_1 = 0;
     canvas_weightless = zeros(1280, 800);
     for t_val = 1:3000
         idxs = (t{pic} == t_val);
@@ -40,10 +39,10 @@ for pic = pics
         fix_count = fix_count + n; % 更新总数
         if n > 0
             canvas_weightless = addCanvasWeightless(canvas_weightless, xs, ys);
-            [last_weightless, last_weightless_1] = calcWeightless(canvas_weightless, fix_count);
+            last_weightless = calcWeightless(canvas_weightless);
         end
         weightless{pic}(t_val) = last_weightless;
-        weightless_1{pic}(t_val) = last_weightless_1;
+        fix_sum{pic}(t_val) = fix_count;
     end
 end
 end
@@ -59,9 +58,8 @@ for idx = 1:length(xs)
 end
 end
 
-function [ent, ent_1] = calcWeightless(canvas, count)
+function [ent] = calcWeightless(canvas)
 ent = entropy(canvas);
-ent_1 = ent/log(count);
 end
 
 function out = kernelize(mat, kernel, x, y)

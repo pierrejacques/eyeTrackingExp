@@ -1,4 +1,13 @@
-function [] = showR(cell)
+function [] = showR(cell, k, plot_option)
+%normalize constant
+if nargin == 1
+    k = 3;
+    plot_option = '-';
+else if nargin == 2
+        plot_option = '-';
+    end
+end     
+
 load data;
 score = score(pics);
 category = category(pics);
@@ -8,7 +17,7 @@ pointer = 0;
 for i = 1:length(cell)
     if length(cell{i}) > 0
         feature = cell{i};
-        feature = feature./log(sum(fixLen)).*log(2);% 对disc归一不能取log
+        feature = feature./log(mean(fixLen)/3*k)*log(2); % normalize
         feature = feature(pics);
         feature = feature(:)';
         pointer = pointer + 1;
@@ -17,9 +26,9 @@ for i = 1:length(cell)
         p(pointer) = f_rate(category, feature);
     end
 end
-plot(x, r, '-');
+plot(x, r, plot_option);
 hold on
-plot(x, p, '-');
+plot(x, p, plot_option);
 end
 
 
