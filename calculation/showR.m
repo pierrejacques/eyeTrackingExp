@@ -1,4 +1,6 @@
 function [] = showR(cell)
+%normalize constant  
+
 load data;
 score = score(pics);
 category = category(pics);
@@ -8,7 +10,6 @@ pointer = 0;
 for i = 1:length(cell)
     if length(cell{i}) > 0
         feature = cell{i};
-        feature = feature./log(sum(fixLen)).*log(2);% 对disc归一不能取log
         feature = feature(pics);
         feature = feature(:)';
         pointer = pointer + 1;
@@ -17,9 +18,9 @@ for i = 1:length(cell)
         p(pointer) = f_rate(category, feature);
     end
 end
-plot(x, r, '-');
+plot(x, r, plot_option);
 hold on
-plot(x, p, '-');
+plot(x, p, plot_option);
 end
 
 
