@@ -1,4 +1,5 @@
 function entCell = userEntropy(sigma)
+
 %给出每个被试对每个页面的眼动熵，以sigma为标准差
 load data
 
@@ -49,7 +50,7 @@ yright = min(ymax, y+r);
 kyright = min(d + ymax - y - r, d);
 out = [mat(1:xup - 1, :); mat(xup:xdown, 1:yleft-1), mat(xup:xdown, yleft:yright)+ kernel(kxup:kxdown, kyleft:kyright), mat(xup:xdown, yright + 1:ymax); mat(xdown + 1:xmax,:)];
 end
-     
+
 function kernel = getKernel(type, r)
 if strcmp(type, 'circle') || strcmp(type, 'oval') | strcmp(type, 'round') || strcmp(type, 'disc') || strcmp(type, 'disk')
     kernel = fspecial('disk', r);
@@ -86,3 +87,4 @@ function out = sanitize(in)
       out(length(in) + 1:3000) = in(length(in));
   end
 end
+
