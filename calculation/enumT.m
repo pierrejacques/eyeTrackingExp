@@ -53,7 +53,7 @@ for idx = 1:length(xs)
     x = xs(idx);
     y = ys(idx);
     if isValid(x, y)
-        canvas_out = kernelize(canvas_out, getKernel('gaussian', 20), x, y);
+        canvas_out = kernelize(canvas_out, getKernel('gaussian', 30), x, y);
     end
 end
 end

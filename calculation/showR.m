@@ -18,9 +18,9 @@ for i = 1:length(cell)
         p(pointer) = f_rate(category, feature);
     end
 end
-plot(x, r, plot_option);
+plot(x, r, '-');
 hold on
-plot(x, p, plot_option);
+plot(x, p, '-');
 end
 
 
