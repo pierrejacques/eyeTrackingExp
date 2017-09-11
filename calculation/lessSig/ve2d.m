@@ -1,4 +1,7 @@
-function out = visualEntropy()
+function out = ve2d(timelimit)
+if nargin == 0
+    timelimit = 5000;
+end
 
 load ../data
 for pic = pics
@@ -6,8 +9,13 @@ for pic = pics
     map = AOImap{pic};
     for user = users
         fix_mat = fixations{user, pic};
+        t = 0;
         n = size(fix_mat, 1);
         for i = 1:n-1
+            t = t + fix_mat(i, 2);
+            if t > timelimit
+                break;
+            end
             x_from = fix_mat(i, 3);
             y_from = fix_mat(i, 4);
             x_to = fix_mat(i + 1, 3);
@@ -15,15 +23,14 @@ for pic = pics
             if isValid(x_from, y_from) && isValid(x_to, y_to)
                 AOI_from = map(x_from, y_from);
                 AOI_to = map(x_to, y_to);
-                if AOI_from > 0 && AOI_to > 0
+                if AOI_from > 0 && AOI_to > 0 && AOI_from ~= AOI_to
                     markov_mat(AOI_from, AOI_to) = markov_mat(AOI_from, AOI_to) + 1;
                 end
             end
         end
     end
-    out(pic) = calcEntropy(markov_mat);
+    out(pic) = calc2dEntropy(markov_mat)/max2dEntropy(AOInum(pic));
 end
-
 
 end
 
@@ -35,17 +42,17 @@ else
 end
 end
 
-function out = calcEntropy(mat)
+function out = calc2dEntropy(mat)
 n = size(mat, 1);
 prior = sum(mat');
 prior = prior/sum(prior);
 out = 0;
 for i = 1:n
-    out = out + prior(i) * rowEntropy(mat(i, :));
+    out = out + prior(i) * calc1dEntropy(mat(i, :));
 end
 end
 
-function out = rowEntropy(row)
+function out = calc1dEntropy(row)
 s = sum(row);
 out = 0;
 if s > 0
@@ -57,4 +64,10 @@ if s > 0
         end
     end
 end
+end
+
+function out = max2dEntropy(n)
+mat = ones(n);
+mat = mat - diag(ones(1, n));
+out = calc2dEntropy(mat);
 end
