@@ -1,4 +1,4 @@
-function [heatCell, weightlessCell, discCell] = enumR(sigmas)
+function [heatCell] = enumR(sigmas)
 %输入要计算的指标的sigma向量
 %输出与sigma等长的全局熵，包括：
 %传统热图的全局熵（以sigma为标准差）
@@ -10,8 +10,8 @@ len = length(sigmas);
 heatCell = cell(len, 1);
 weightlessCell = cell(len, 1);
 discCell = cell(len, 1);
-for idx = 1:len
-    sigma = sigmas(idx);
+parfor idx = 1:len
+    sigma = sigmas(idx)
     [discCell{idx}, weightlessCell{idx}, heatCell{idx}] = globalEntropy(getKernel('gaussian', sigma));
 end
 if len == 1
@@ -39,8 +39,8 @@ for pic  = pics
             x = fixMat(i, 3);
             y = fixMat(i, 4);
             if isValid(x, y)
-                canvasWeightless = kernelize(canvasWeightless, kernel, x, y);
-                canvasHeat = kernelize(canvasWeightless, duration * kernel, x, y);
+%                 canvasWeightless = kernelize(canvasWeightless, kernel, x, y);
+                canvasHeat = kernelize(canvasHeat, duration * kernel, x, y);
             end
         end
     end
