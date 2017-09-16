@@ -26,7 +26,7 @@ for pic  = pics
             y = fixMat(i, 4);
             if isValid(x, y)
                 canvasWeightless = kernelize(canvasWeightless, kernel, x, y);
-                canvasHeat = kernelize(canvasWeightless, duration * kernel, x, y);
+                canvasHeat = kernelize(canvasHeat, duration * kernel, x, y);
             end
         end
     end
