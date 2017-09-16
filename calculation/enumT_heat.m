@@ -22,21 +22,23 @@ for pic = pics
 end
 
 % idx 指向当下用户停留的位置
-idx = ones(max(users), max(pics));
 out = initOut();
 kernel = getKernel('gauss', 30);
-for pic = pics
+parfor pic = 1:max(pics)
+    if pic == 5 || pic == 18
+        continue
+    end
     pic
+    idx = zeros(30, 1);
     canvas = zeros(1280, 800);
-    for t = 1:3000
-        t
-        for user = users
+    for t = 1:5:3000
+        for user = 1:30
             n = size(fix_trans{user, pic}, 1);
-            if idx(user, pic) < n && fix_trans{user, pic}(idx(user, pic) + 1, 1) == t
-                idx(user, pic) = idx(user, pic) + 1;
+            if idx(user) < n && fix_trans{user, pic}(idx(user) + 1, 1) <= t
+                idx(user) = idx(user) + 1;
             end
-            x = fix_trans{user, pic}(idx(user, pic), 2);
-            y = fix_trans{user, pic}(idx(user, pic), 3);
+            x = fix_trans{user, pic}(idx(user), 2);
+            y = fix_trans{user, pic}(idx(user), 3);
             if isValid(x, y)
                 canvas = kernelize(canvas, kernel, x, y);
             end
@@ -51,6 +53,13 @@ function out = initOut()
 load data
 for pic = pics
     out{pic} = zeros(3000, 1);
+end
+end
+
+function canvas = initCanvas()
+load data
+for pic = pics
+    canvas{pic} = zeros(1280, 800);
 end
 end
 
