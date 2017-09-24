@@ -1,6 +1,13 @@
 \documentclass[conference]{IEEEtran}
 \usepackage{booktabs}
-\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{geometry}
+\usepackage{graphicx} %加载图片
+\usepackage{float} % 流动布局
+%\usepackage{hidelinks}{hyperref} % 隐藏目录链接的超链接格式
+\usepackage[none]{hyphenat} % 避免表格中的换行
+\usepackage{array}
+\usepackage[numbers, sort&compress]{natbib}
 \ifCLASSINFOpdf
    \graphicspath{{../}}     % declare the path(s) where your graphic files are
     \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
@@ -76,7 +83,7 @@ The restricted exposure time must be enough to allow us to examine the early uni
 \subsection{Equipment}
 The eye tracker we used is a Tobii T50 that works with Tobii Studio 9 software. The eye tracker resolution is 1280 * 1024 pixel.\\
 \subsection{Materials}
-We select 40 website main pages snapshots as the testing material. To make the webpages more representative to good or bad in aesthetic quality. We sample pages from（*）一个评选优秀网页设计的网站和一个评选丑陋网页设计的网站（www.websitesfromhell.com）， and only select the odd number pages in the collections.\\
+We select 40 website main pages snapshots as the testing material. To make the webpages more representative to good or bad in aesthetic quality. We sample pages from （*）一个评选优秀网页设计的网站和一个评选丑陋网页设计的网站（www.websitesfromhell.com）， and only select the odd number pages in the collections.\\
 pages that contain non-Latin characters or well recognized logos and faces are removed, to avoided interference of non-aesthetic social opinions. Finally, we get 20 webpages from each site. All pages are snapshotted in landscape form with resolution 1280*800 pixels to match the window of eye tracker. The snapshots include the frame of web browser. Figure xx is all the pages used as the stimuli.\\
 All the pages used in our eye tracking test. Arranged According to the score, from low to high.
 \subsection{Subjects}
@@ -92,12 +99,15 @@ Each page in the test will get a final score based on how many good or bad it ha
 the distribution is apparently bimodal. The 20 pages with score less than 0.5 are exactly same pages collected from the www. In other words, this 20 pages were recognized as "bad" pages without any doubt.\\
 T50 collect the eye focus on the screen in the frequency of 50Hz, and through interpolation to get the speeds of the eye movement at all times, then to estimate where the fixation gaze happens.\\
 The raw data produced by the eye tracker is consisted a series of gazes/fixations. Each fixation contain four parameters: the start time, the duration, position X and Y on the screen. All of our analysis below comes from these original eye-tracking data based on fixations.\\
+
 \begin{figure}
-\label{fig:all}
+  \label{fig:all}
   \centering
-  \includegraphics [width=80mm]{pics_sort_compressed.jpg}
+  \includegraphics [width=150mm]{fig_all.jpg}
   \caption{Proposed Secure Systolic Montgomery modular MultiplierArchitecture}
 \end{figure}
+\cleardoublepage
+
 \section{Analysis}
 \label{sec:ana}
 probability space:$$\Omega = \{x_1, ... ,x_n\}$$\\
@@ -196,36 +206,212 @@ The markov nature of eye movements
 If a discrete time series {x0, x1, ..., xt} satisfying P (xt + 1 | xt) = P (xt + 1 | xt, xt-1, xt-2, ..., x0), then the time series is called the Markov chain. The markov chain of AOI sequences could be simply explained that which AOI we glancing toward is only relevant to which AOI we have just gazed on.\\
 For the 1st order markov chain, the total transitional probability information can be summarized by a one-step transition probability matrix.\\
 In the experiment, the matrix of probability is estimated by counting all the occurrences of the transitions between the AOIs on the page. The figure xx is the probability matrix obtained from the eye movement data of the example image in fugure xx:\\
-\begin{table}[]
+
+\begin{table}[H]
+\label{tab:markov}
 \centering
-\resizebox{90mm}{!}{%
-\begin{tabular}{@{}|lllllllllll|@{}}
-\hline
-0    & 0    & 0.67 & 0    & 0    & 0    & 0    & 0    & 0    & 0.33 & 0    \\
-0    & 0    & 0.14 & 0    & 0    & 0.14 & 0    & 0    & 0.71 & 0    & 0    \\
-0.08 & 0.16 & 0    & 0.28 & 0.04 & 0    & 0.16 & 0.04 & 0.04 & 0.04 & 0.16 \\
-0.04 & 0.04 & 0.04 & 0    & 0    & 0    & 0.15 & 0.63 & 0    & 0    & 0.11 \\
-0    & 0.33 & 0    & 0    & 0    & 0    & 0    & 0    & 0.67 & 0    & 0    \\
-0    & 0.17 & 0.17 & 0.17 & 0    & 0    & 0.5  & 0    & 0    & 0    & 0    \\
-0    & 0.05 & 0.3  & 0.22 & 0    & 0    & 0    & 0.14 & 0    & 0    & 0.3  \\
-0    & 0    & 0.17 & 0.26 & 0.04 & 0.04 & 0.13 & 0    & 0.04 & 0    & 0.3  \\
-0    & 0.73 & 0    & 0.2  & 0    & 0    & 0    & 0.1  & 0    & 0    & 0    \\
-0    & 0.43 & 0    & 0    & 0    & 0    & 0    & 0    & 0.43 & 0    & 0.14 \\
-0    & 0.1  & 0.1  & 0.17 & 0.04 & 0    & 0.21 & 0.08 & 0.04 & 0.29 & 0\\
-\hline
-\end{tabular}%
+\resizebox{80mm}{!}{%
+  \begin{tabular}{@{}|lllllllllll|@{}}
+  \hline
+  0    & 0    & 0.67 & 0    & 0    & 0    & 0    & 0    & 0    & 0.33 & 0    \\
+  0    & 0    & 0.14 & 0    & 0    & 0.14 & 0    & 0    & 0.71 & 0    & 0    \\
+  0.08 & 0.16 & 0    & 0.28 & 0.04 & 0    & 0.16 & 0.04 & 0.04 & 0.04 & 0.16 \\
+  0.04 & 0.04 & 0.04 & 0    & 0    & 0    & 0.15 & 0.63 & 0    & 0    & 0.11 \\
+  0    & 0.33 & 0    & 0    & 0    & 0    & 0    & 0    & 0.67 & 0    & 0    \\
+  0    & 0.17 & 0.17 & 0.17 & 0    & 0    & 0.5  & 0    & 0    & 0    & 0    \\
+  0    & 0.05 & 0.3  & 0.22 & 0    & 0    & 0    & 0.14 & 0    & 0    & 0.3  \\
+  0    & 0    & 0.17 & 0.26 & 0.04 & 0.04 & 0.13 & 0    & 0.04 & 0    & 0.3  \\
+  0    & 0.73 & 0    & 0.2  & 0    & 0    & 0    & 0.1  & 0    & 0    & 0    \\
+  0    & 0.43 & 0    & 0    & 0    & 0    & 0    & 0    & 0.43 & 0    & 0.14 \\
+  0    & 0.1  & 0.1  & 0.17 & 0.04 & 0    & 0.21 & 0.08 & 0.04 & 0.29 & 0\\
+  \hline
+  \end{tabular}
 }
 \caption{an example of the markov transition matrix of an web page}
 \label{my-label}
 \end{table}
+
 In the Matrix, pij represents the probability of transition from AOI i to AOI j.\\
 Then, a visual entropy based on the 1st order markov transition matrix are calculated by the formula:\\
 Definition of 1-state transition entropy:$$H = \sum_{i=1}^n(P(i)\sum_{j\neq i} p_{ij}log_2(p_{ij}))$$\\
 relative entropy:$$H_{relative}~=~\frac{H}{H_{max}}$$\\
 Where $p_{ij}$ represents the conditional probability of transition from AOI $i$ to AOI $j$. $p(i)$ represents the prior probability of $i$, that is, the probability of starting from X, which is obtained by counting the frequency of occurrence of X in all AOI sequences on the statistics page.
-Hmax is the maximum entropy of the current AOI transitions, and the maximum entropy is obtained by supposing all transition probabilities are equal and all the prior probabilities are equal. By dividing the Hmax, the visual entropies of different pages with different numbers of AOIs are comparable to each other.\\
-Then entropy could inform us the certainty of the attentional shifts between AOI. We expected that the entropy of a good page would have a smaller value. However, the result was disappointing. Based on the 3s eye tracking data, The correlation between the entropies and the aesthetic scores was 0.1585, and the two classes’ anova P-value is 0.4741.\\
+Hmax is the maximum entropy of the current AOI transitions, and the maximum entropy is obtained by supposing all transition probabilities are equal and all the prior probabilities are equal. By dividing the Hmax, the visual entropies of different pages with different numbers of AOIs are comparable to each other.
 
+Then entropy could inform us the certainty of the attentional shifts between AOI. We expected that the entropy of a good page would have a smaller value. However, the result was disappointing. Based on the 3s eye tracking data, The correlation between the entropies and the aesthetic scores was 0.1585, and the two classes’ anova P-value is 0.4741.
+
+% 图片先暂时放在这里
+
+\begin{figure}[H]
+  \label{fig:bvae}
+  \centering
+  \includegraphics [width=80mm]{fig_bvae.jpg}
+  \caption{caption fig bvae}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:corr-t}
+  \centering
+  \includegraphics [width=80mm]{fig_corr_t.jpg}
+  \caption{caption fig corr t}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:eg}
+  \centering
+  \includegraphics [width=80mm]{fig_eg.jpg}
+  \caption{caption fig example pic}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:aoi}
+  \centering
+  \includegraphics [width=80mm]{fig_eg_AOI.jpg}
+  \caption{caption AOI example}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:hm}
+  \centering
+  \includegraphics [width=80mm]{fig_eg_hm.jpg}
+  \caption{caption example of heat map}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:hm-df}
+  \centering
+  \includegraphics [width=80mm]{fig_eg_hm_df.jpg}
+  \caption{caption example of duration-free heat map}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:rvae-box}
+  \centering
+  \includegraphics [width=80mm]{fig_rvae_box.jpg}
+  \caption{caption anova box plot of rvae}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:vae-box}
+  \centering
+  \includegraphics [width=80mm]{fig_vae_box.jpg}
+  \caption{caption anova box plot of vae}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:rvae-score}
+  \centering
+  \includegraphics [width=80mm]{fig_rvae_score.jpg}
+  \caption{caption rvae-score}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:vae-score}
+  \centering
+  \includegraphics [width=80mm]{fig_vae_score.jpg}
+  \caption{caption vae-score}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:rvae-t}
+  \centering
+  \includegraphics [width=80mm]{fig_rvae_t.jpg}
+  \caption{caption rvae-t}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:vae-t}
+  \centering
+  \includegraphics [width=80mm]{fig_vae_t.jpg}
+  \caption{caption vae-t}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:score}
+  \centering
+  \includegraphics [width=80mm]{fig_score.jpg}
+  \caption{caption histogram of score}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:vae-sigma}
+  \centering
+  \includegraphics [width=80mm]{fig_vae_sigma.jpg}
+  \caption{caption vae-sigma}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:vae-user}
+  \centering
+  \includegraphics [width=80mm]{fig_vae_user.jpg}
+  \caption{caption vae-user}
+\end{figure}
+
+\begin{figure}[H]
+  \label{fig:vae-user-inc}
+  \centering
+  \includegraphics [width=80mm]{fig_vae_user_inc.jpg}
+  \caption{caption vae-user-inc}
+\end{figure}
+
+% 表格先暂时放在这里
+\begin{table}[H]
+\label{tab:corr}
+\begin{tabular}{l|rrrrrr}
+        &score&fixNum&AOINum&VAE&bVAE&rVAE\\ \hline
+  score &1&0.33&-0.18&\bfseries{-0.55}&-0.11&\bfseries{-0.65}\\
+  fixNum&&1&-0.11&0.04&\bfseries{0.60}&-0.25\\
+  AOINum&&&1&-0.01&0.01&-0.01\\
+  VAE&&&&1&\bfseries{0.70}&\bfseries{0.93}\\
+  bVAE&&&&&1&0.40\\
+  rVAE&&&&&&1\\
+\end{tabular}
+\caption{}
+\end{table}
+
+\begin{table}[H]
+\label{tab:anova-rvae}
+\begin{tabular}{lrrrrr}
+  Source&SS&df&MS&F&Prob$>$F\\ \hline
+  Groups&0.00295&1&0.00295&25.88&1.01E-05\\
+  Error&0.00433&38&0.00011&&\\
+  Total&0.00727&39&&&\\
+\end{tabular}
+\caption{anova table of rVAE(duration free)}
+\end{table}
+
+\begin{table}[H]
+\label{tab:anova-vae-dw}
+\begin{tabular}{lrrrrr}
+  Source&SS&df&MS&F&Prob$>$F\\ \hline
+  Groups&1.15861&1&1.15861&15.79&0.0003\\
+  Error&2.78901&38&0.07339&&\\
+  Total&3.94762&39&&&\\
+\end{tabular}
+\caption{anova table of VAE(duration weighted)}
+\end{table}
+
+\begin{table}[H]
+\label{tab:anova-vae-df}
+\begin{tabular}{lrrrrr}
+  Source&SS&df&MS&F&Prob$>$F\\ \hline
+  Groups&1.01285&1&1.01285&16.6&0.0002\\
+  Error&2.31802&38&0.061&&\\
+  Total&3.33087&39&&&\\
+\end{tabular}
+\caption{anova table of VAE(duration free)}
+\end{table}
+
+\begin{table}[H]
+\label{tab:anova-ve}
+\begin{tabular}{lrrrrr}
+  Source&SS&df&MS&F&Prob$>$F\\ \hline
+  Groups&0.00166&1&0.00166&0.52&0.4741\\
+  Error&0.12101&38&0.00318&&\\
+  Total&0.12268&39&&&\\
+\end{tabular}
+\caption{anova table of VAE(duration weighted)}
+\end{table}
 
 \section{Discussion}
 \label{sec:dis}
