@@ -1,9 +1,9 @@
 
 \section{Introduction}
 \label{sec:intro}
-Aesthetics are important factors for engaging users in browsing a website. Big data reveal that most visitors will determine whether to stay on or leave a webpage in just a few seconds after landing\cite{Liu2010}.  Appealing webpages feel more trustworthy to visitors\cite{Everard2005}\cite{Lindgaard2011}. Beautiful webpages are seemingly more usable\cite{Tractinsky2000}.
+Aesthetics is an important factor for engaging users in browsing a website. Big data reveal that most visitors will determine whether to stay on or leave a webpage in just a few seconds after landing\cite{Liu2010}.  Appealing webpages feel more trustworthy to visitors\cite{Everard2005}\cite{Lindgaard2011}. Beautiful webpages are seemingly more usable\cite{Tractinsky2000}.
 
-Aesthetic is rooted in the Greek term for "to perceive." Our vision system, the eye and the connected cortex behind, enables us to perceive and cognize the beauty around us. An eye behaves like a spotlight\cite{Eriksen1972}: it has a narrow but very high-resolution foveal vision surrounded with a broader but much lower resolution peripheral area.  visual attention keeps selecting where our spotlight moves, targeting things like faces, words, images on screens, and a variety of other meaningful objects, bringing salient details into the focus and filtering out background clutter. The spotlight keeps glancing from one spot to another and piecing all snapshots together to give an overall impression of the scene to our brain.
+"Aesthetics" is rooted in the Greek term for "to perceive". Our vision system, the eye and the connected cortex behind, enables us to perceive and cognize the beauty around us. An eye behaves like a spotlight\cite{Eriksen1972}: It has a narrow but very high-resolution foveal vision surrounded with a broader but much lower resolution peripheral area.  visual attention keeps selecting where our spotlight moves, targeting things like faces, words, images on screens, and a variety of other meaningful objects, bringing salient details into the focus and filtering out background clutter. The spotlight keeps glancing from one spot to another and piecing all snapshots together to give an overall impression of the scene to our brain.
 
 Eye tracking devices are designed for recording fixations (gaze) and saccades (eye movements). In usability and marketing research, eye tracking has been used to evaluate the accessibility of key information. Though useful, this is still a fairly limited measure of user experience\cite{Santella}.
 
@@ -94,7 +94,7 @@ the distribution is apparently bimodal. The 20 pages with score less than 0.5 ar
 \begin{figure}[H]
   \centering
   \includegraphics [width=0.9\columnwidth]{fig_score.pdf}
-  \caption{ the distribution of page on scores. There are clearly two groups. The bad pages are generally more definite, while the good pages are more evenly distributed.}
+  \caption{The distribution of page on scores. There are clearly two groups. The bad pages are generally more definite, while the good pages are more evenly distributed.}
   \label{fig:score}
 \end{figure}
 
@@ -102,7 +102,6 @@ T50 collects the eye focus on the screen at a frequency of 50Hz, and through int
 
 The raw data produced by the eye tracker consisted of a series of gazes and fixations. Each fixation contains four parameters: the start time, the duration, position X and Y on the screen. The following analysis is just based on this format of eye-tracking data.
 
-\clearpage
 \section{Analysis}
 \label{sec:ana}
 \subsection{ Traditional statistical indexes}
@@ -124,7 +123,7 @@ Areas of Interests (AOIs) are spatial clusters of the fixations on the pages, we
 
 \begin{figure}[H]
   \centering
-  \includegraphics [width=\columnwidth]{fig_AOI.jpg}
+  \includegraphics [width=0.9\columnwidth]{fig_AOI.jpg}
   \caption{Top is one of the testing images. Bottom is the image overlapped with AOIs, which are generated using default clustering tool in Tobii studio. There are total 11 AOIs.}
   \label{fig:aoi}
 \end{figure}
@@ -209,7 +208,7 @@ The entropy represents the uncertainty of the transition between the fixations. 
     3 - 7 - 4\\
     \\
   \end{tabular}
-  \caption{subjects' gaze transitions among the 11 AOIs on the image (see figure \ref{fig:aoi})}
+  \caption{Subjects' gaze transitions among the 11 AOIs on the image (see figure \ref{fig:aoi})}
   \label{tab:seq}
 \end{table}
 
@@ -261,7 +260,7 @@ The entropy could inform us the certainty of the attentional shifts between AOI.
   Error&0.12101&38&0.00318&&\\
   Total&0.12268&39&&&\\
 \end{tabular}
-\caption{the ANOVA analysis of Visual Entropy based on the gaze transitions}
+\caption{The ANOVA analysis of Visual Entropy based on the gaze transitions}
 \label{tab:ANOVA-ve}
 \end{table}
 
@@ -280,7 +279,7 @@ Here we introduce a new entropy metric based on the heatmap, which is the best-k
   \centering
   \includegraphics [width=\columnwidth]{fig_eg_hm.jpg}
   \includegraphics [width=\columnwidth]{fig_eg_hm_df.jpg}
-  \caption{the heatmap of the example pages in figure 3. The top is duration-weighted heatmap. The bottom is duration-free heatmap. You can see the brightness of the dots are slightly different. The two maps use Gaussian interpolation ($\sigma=30px$). Weightless means that all the kernels have the same weight.}
+  \caption{The heatmap of the example pages in figure 3. The top is duration-weighted heatmap. The bottom is duration-free heatmap. You can see the brightness of the dots are slightly different. The two maps use Gaussian interpolation ($\sigma=30px$). Weightless means that all the kernels have the same weight.}
   \label{fig:hm}
 \end{figure}
 
@@ -315,7 +314,7 @@ It is interesting that the duration-free heatmap (see figure \ref{fig:hm}), a he
   Error&2.78901&38&0.07339&&\\
   Total&3.94762&39&&&\\
 \end{tabular}
-\caption{the ANOVA analysis of the entropy of duration-weighted heatmap}
+\caption{The ANOVA analysis of the entropy of duration-weighted heatmap}
 \label{tab:ANOVA-vae-dw}
 \end{table}
 
@@ -326,7 +325,7 @@ It is interesting that the duration-free heatmap (see figure \ref{fig:hm}), a he
   Error&2.31802&38&0.061&&\\
   Total&3.33087&39&&&\\
 \end{tabular}
-\caption{the ANOVA analysis of the entropy of duration-free heatmap}
+\caption{The ANOVA analysis of the entropy of duration-free heatmap}
 \label{tab:ANOVA-vae-df}
 \end{table}
 
@@ -335,7 +334,9 @@ Present results show that the visual entropy based on heatmap is the most promis
 \subsubsection{Relative VAE}
 There is a defect with VAE as metric. VAE is negatively correlated with the aesthetics judgements. However, an absolutely lower VAE does not necessary mean a very high aesthetic quality. For instance, a web page with very little content may result in a very low VAE. While a web page containing many objects may have relatively high VAE. This certainly does not mean the former is better than the latter. Theoretically, the VAEs of the pages with different contents are not comparable to each other.
 
-To solve this problem, we introduced a concept called Relative VAE (rVAE). To compare VAEs of different webpages, it is necessary to take into account their different Base VAE (bVAE), which is supposed to be the inevitable and noise free VAE of a page. It means the page's must-pay attention resource for the contents per se. The bVAE on the page is estimated by averaging the individual VAEs of all subjects.
+To solve this problem, we introduced a concept called Relative VAE (rVAE). To compare VAEs of different webpages, it is necessary to take into account their different Base VAE (bVAE), which is supposed to be the noise-free VAE of a page. It represents the inevitable attention cost of the page.
+%'s must-pay attention resource for the contents per se.
+The bVAE on the page is estimated by averaging the individual VAEs of all subjects.
 
 $$bVAE~=~\frac{1}{n}\sum_{i=1}^n VAE(P_i)$$
 
@@ -382,18 +383,16 @@ The formula \ref{formula:rvae} indicates that the higher the bVAE, the lower the
   bVAE&-&-&-&1&0.40\\
   rVAE&-&-&-&-&1\\
 \end{tabular}
-\caption{the pearson correlations in-between the main indexes. All VAEs are duration-free.}
+\caption{The pearson correlations in-between the main indexes. All VAEs are duration-free.}
 \label{tab:corr}
 \end{table}
 
 On other hand, generally a lower bVAE is corresponding to a lower VAE. Apparently this does not mean a lower rVAE either. The analysis shows that aesthetic score is weakly correlated with Number of Fixation (r=0.33). So the good pages are generally have more fixations (interesting points). And bVAE is also positively correlated with Number of Fixation (r=0.59). This implies the good web pages generally are not based on lower bVAEs. Those facts may also explain why bVAE has ignorable linear correlation with the aesthetic score (r=-0.11). Figure \ref{fig:bvae} shows bVAE has no difference between the good and bad pages.
 
-It seems that a moderate bVAE is more welcome. A moderate bVAE means a proper amount of specific information the viewer has perceived. It also represents the must-pay attention resource for the visual exploration in the viewport.
-
 \begin{figure}[H]
   \centering
   \includegraphics [width=\columnwidth]{fig_bvae.pdf}
-  \caption{the box diagrams of 30 individual VAEs on the 40 webpages. The red lines in the boxes represent the bVAEs (means). The pages are sorted by their scores, from low to high.}
+  \caption{The box diagrams of 30 individual VAEs on the 40 webpages. The red lines in the boxes represent the bVAEs (means). The pages are sorted by their scores, from low to high.}
   \label{fig:bvae}
 \end{figure}
 
@@ -401,21 +400,21 @@ It seems that a moderate bVAE is more welcome. A moderate bVAE means a proper am
 \begin{figure*}
   \centering
   \includegraphics [width=1.94\columnwidth]{fig_box.pdf}
-  \caption{the box diagrams of VAE (left) and rVAE (right), both are duration-free. Apparently, the rVAE more significantly separates the two classes.}
+  \caption{The box diagrams of VAE (left) and rVAE (right), both are duration-free. Apparently, the rVAE more significantly separates the two classes.}
   \label{fig:box}
 \end{figure*}
 
 \begin{figure*}
   \centering
   \includegraphics [width=2\columnwidth]{fig_with-score.pdf}
-  \caption{the scatter plots of VAE (left) and rVAE (right). Both are duration-free. Apparently. The point cloud in the bottom one are more significantly skewed.}
+  \caption{The scatter plots of VAE (left) and rVAE (right). Both are duration-free. Apparently. The point cloud in the bottom one are more significantly skewed.}
   \label{fig:with-score}
 \end{figure*}
 
 \begin{figure*}
   \centering
   \includegraphics [width=2.1\columnwidth]{fig_outlier.jpg}
-  \caption{the left is the outlier page (point 24 in figure \ref{fig:with-score}). The right is a revised version, in which some local saliencies have been slightly adjusted.}
+  \caption{The left is the outlier page (point 24 in figure \ref{fig:with-score}). The right is a revised version, in which some local saliencies have been slightly adjusted.}
   \label{fig:out}
 \end{figure*}
 
@@ -425,23 +424,26 @@ Figure \ref{fig:box} is the ANOVA box diagrams of VAE and rVAE. Figure \ref{fig:
 
 \subsection{Outlier}
 
-By carefully comparing the two scatter plots in figure \ref{fig:with-score}, we can find generally the points with higher scores (above 0.5) are slightly move left, while the points with lower scores are skewed right. Make them more separable. There are still some misclassified cases. An extreme outlier ( see the dot with red circle in the figure ) though has a not bad score 0.7, its VAE and rVAE are pretty high.
+By carefully comparing the two scatter plots in figure \ref{fig:with-score}, we find that generally the points with higher scores (above 0.5) move slightly towards the left, while the points with lower scores skew right. Make them more separable. However, there are still some misclassified cases. An extreme outlier (see the dot with red circle in the figure) though has a not bad score of 0.7, its VAE and rVAE are quite high.
 
-Checking the original image of the page (see figure \ref{fig:out} left)  on full screen, we can feel our eyes a little strained with selection pressure. So, it is seemingly not an experimental error. the rVAE really caught the unpleasant in observers' eyes.
+Checking the original image of the page (see figure \ref{fig:out} left) full screen, we can feel our eyes are somewhat strained with selection pressure. Thus, it is seemingly not an experimental error. The rVAE really captures the unpleasant viewing experience for observers' eyes.
 
-Why this page got a fairly good score? We think it might be attributed to the beautiful contents. Objectively speaking, this is a not so bad webpage, especially the images are nice. But from designer's point of view, it still has a large room to improve. Figure \ref{fig:out} right is a slightly revised version of the page. It demonstrates how trivial details can make difference.
+Why did this page get a fairly good aesthetic score? We think it might be attributed to the beautiful contents. Objectively speaking, this is not such bad webpage, especially since the images are nice. However, from the designer's point of view, it still has much room to improve. Figure \ref{fig:out} right is a slightly revised version of the page. It demonstrates how trivial details can make difference.
 
-It is no doubt that the contents of webpage are inevitably an influential factor to our attention and aesthetic cognition. VAE is not the all about webpage aesthetics. VAE is essentially more affected by bottom up low-level image features such as edge contrast or complexity.
+It is no doubt that the contents of a webpage is an important factor to our attention and aesthetic cognition. VAE is not the all about webpage aesthetics. It is actually more affected by bottom up low-level image features such as edge contrast or complexity.
 
 
 \subsection{The stability of VAE}
-Figure \ref{fig:with-t} visualizes how the VAEs of 40 pages are increasing over time. For every moment of time t, we calculate the entropies based on the accumulated fixations during the period from 0 to t, until t = 3000ms. Then For each of the 40 pages, we get a corresponding curve over time. All the 40 curves are fluctuating at the beginning, and gradually flattened and stabilized. In same way, Figure 4b visualizes how the rVAE of each pages decreasing over time.
+Figure \ref{fig:with-t} visualizes how the VAEs of 40 pages increase over time. For every moment of time t, we calculate the entropies based on the accumulated fixations during the period from 0 to t, until t = 3000ms. Then For each of the 40 pages, we get a corresponding curve over time. All the 40 curves fluctuate greatly at the beginning, and then gradually flatten and stabilize. In same way, Figure 4b visualizes how the rVAE of each pages decreasing over time.
 
-The blue curves are the good pages while the red curves are the bad pages. Apparently, the good pages generally have lower VAE and rVAE all the time. And the two groups are more clearly separated at the end.
+The blue curves are the aesthetically good pages while the red curves are the bad pages. Apparently, the good pages generally have lower VAE and rVAE all the time. And the two groups are more clearly separated at the end.
 
-In order to optimize the performance of VAE, we traverse the correlations between the entropies and the Aesthetic scores depending on the variables of the testing time, the number of subjects and the $\sigma$ of the Gaussian kernel.
+In order to optimize the performance of VAE, we investigate how the correlation between the entropies and the aesthetic score varies with the testing time, the number of subjects and the $\sigma$ of the Gaussian kernel.
 
-Figure \ref{fig:corr-t} visualizes how the correlations between the entropies and the aesthetics developing over the testing time. The correlations become most significant at 3s. As we did not record the eye movements after 3s, we are not able to see the development afterwards. They can be better, judging from the tendency, which is still slightly going downwards.
+Figure \ref{fig:corr-t} visualizes how the correlations between the entropies and the aesthetics developing over the testing time. The correlations become most significant at 3s. As we did not record the eye movements after 3s, we are not able to see the development afterwards. We suppose the correlation will continue to be stronger, judging from the tendency, which is still slightly decreasing.
+
+Figure \ref{fig:with-user} visualizes how increasing the number of subjects gradually stabilizes the performances of the visual entropies. They gradually become stable by enlarging the sample groups of subjects, sized 2, 3, 4... 29, which are generated by random from the total 30 subjects.
+The coefficients are gradually stabilized with the increasing number of subjects and gradually converges between -0.5 and -0.6. The graph also indicates that 30 subjects might be a balance point between the precision and the costs.
 
 \begin{figure}[H]
   \centering
@@ -451,35 +453,33 @@ Figure \ref{fig:corr-t} visualizes how the correlations between the entropies an
   \label{fig:with-t}
 \end{figure}
 
-Figure \ref{fig:with-user} visualizes how increasing number of subjects gradually stabilizes the performances of the visual entropies. They gradually become stable by enlarging the sample groups of subjects, sized 2, 3, 4... 29, which are generated by random from the total 30 subjects.
-The coefficients are gradually stabilized with the increasing number of subjects and gradually converges between -0.5 and -0.6. The graph also indicates that 30 subjects might be a balance point between the precision and the costs.
-The larger the number of subjects, the smaller the testing error. However, it also means more time and more money. And the accuracy of the posteriori probability gradually ceases to increase after a certain number of samplings.
+The larger the number of subjects, the smaller the testing error. However, it also means more time and more money. Furthermore, the accuracy of the posteriori probability gradually ceases to increase after a certain number of samplings.
 
 \begin{figure}
   \centering
-  \includegraphics [width=0.9\columnwidth]{fig_corr_t.pdf}
-  \caption{ four curves represent VAE and rVAE (both with and without duration weights), their correlations to the aesthetic scores developing over the time line. It is clear that rVAEs keeps below the VAEs after 1000ms. It seems that the rVAEs could perform better after the 3000ms.}
+  \includegraphics [width=0.85\columnwidth]{fig_corr_t.pdf}
+  \caption{Four curves represent VAE and rVAE (both with and without duration weights), their correlations to the aesthetic scores developing over the time line. It is clear that rVAEs stay below the VAEs after 1000ms. It seems that the rVAEs could perform better after the 3000ms.}
   \label{fig:corr-t}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics [width=0.9\columnwidth]{fig_user.pdf}
+  \includegraphics [width=0.85\columnwidth]{fig_user.pdf}
   %\includegraphics [width=80mm]{fig_vae_user.jpg}
-  \caption{four curves represent VAE and rVAE (both with and without duration weights), their correlations to the aesthetic scores changing by gradually increasing the number of subjects.}
+  \caption{Four curves represent VAE and rVAE (both with and without duration weights), their correlations to the aesthetic scores changing by gradually increasing the number of subjects.}
   \label{fig:with-user}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics [width=0.9\columnwidth]{fig_sigma.pdf}
-  \caption{Two curves are for duration-weighted and duration-free VAEs. Their correlations with aesthetics are changing smoothly with $\sigma$}
+  \includegraphics [width=0.85\columnwidth]{fig_sigma.pdf}
+  \caption{Two curves are for duration-weighted and duration-free VAEs. Their correlations with aesthetics change smoothly with $\sigma$}
   \label{fig:with-sigma}
 \end{figure}
 
 Until now, all the analysis of the entropies is based on the heatmap with Gaussian $\sigma=30px$. How sensitive is the performance when the $\sigma$'s value is changing?
 
-The figure \ref{fig:with-sigma} visualizes the Pearson correlations changing by the Gaussian $\sigma$. In a pretty wide range of $\sigma$, from 13px-60px, the correlation coefficients keep below -0.5. And the curves have a climaxes at about 20-30px. So the entropies are not so sensitive to the size of the Gaussian.
+Figure \ref{fig:with-sigma} visualizes the Pearson correlations changing by the Gaussian $\sigma$. For a wide range of $\sigma$, from 13px-60px, the correlation coefficient stays below -0.5. And the curves reach extremum at about 20-30px. So the entropies are not so sensitive to the size of the Gaussian.
 
 The above analysis verified the stability of the VAE and rVAE in predicting our aesthetic judgements.
 
