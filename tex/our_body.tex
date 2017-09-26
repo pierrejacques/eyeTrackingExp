@@ -123,7 +123,7 @@ Areas of Interests (AOIs) are spatial clusters of the fixations on the pages, we
 
 \begin{figure}[H]
   \centering
-  \includegraphics [width=0.9\columnwidth]{fig_AOI.jpg}
+  \includegraphics [width=\columnwidth]{fig_AOI.jpg}
   \caption{Top is one of the testing images. Bottom is the image overlapped with AOIs, which are generated using default clustering tool in Tobii studio. There are total 11 AOIs.}
   \label{fig:aoi}
 \end{figure}
@@ -422,6 +422,7 @@ The introduction of bVAE enables us to compare VAEs of pages with different comp
 
 Figure \ref{fig:box} is the ANOVA box diagrams of VAE and rVAE. Figure \ref{fig:with-score} is the scatter plots of 40 webpages based on their VAEs and rVAEs. Compared to the VAE, the rVAE performs better. The separation of high and low score pages are clearer.
 
+\clearpage
 \subsection{Outlier}
 
 By carefully comparing the two scatter plots in figure \ref{fig:with-score}, we find that generally the points with higher scores (above 0.5) move slightly towards the left, while the points with lower scores skew right. Make them more separable. However, there are still some misclassified cases. An extreme outlier (see the dot with red circle in the figure) though has a not bad score of 0.7, its VAE and rVAE are quite high.
@@ -447,8 +448,8 @@ The coefficients are gradually stabilized with the increasing number of subjects
 
 \begin{figure}[H]
   \centering
-  \includegraphics [width=\columnwidth]{fig_vae-t.pdf}
-  \includegraphics [width=\columnwidth]{fig_rvae-t.pdf}
+  \includegraphics [width=0.9\columnwidth]{fig_vae-t.pdf}
+  \includegraphics [width=0.9\columnwidth]{fig_rvae-t.pdf}
   \caption{The VAEs (top) and the rVAEs (bottom) of the 40 pages are calculated over time line. The blue curves are good pages. The red curves are bad pages.}
   \label{fig:with-t}
 \end{figure}
