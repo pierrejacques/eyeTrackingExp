@@ -93,7 +93,7 @@ the distribution is apparently bimodal. The 20 pages with score less than 0.5 ar
 
 \begin{figure}[H]
   \centering
-  \includegraphics [width=0.9\columnwidth]{fig_score.jpg}
+  \includegraphics [width=0.9\columnwidth]{fig_score.pdf}
   \caption{ the distribution of page on scores. There are clearly two groups. The bad pages are generally more definite, while the good pages are more evenly distributed.}
   \label{fig:score}
 \end{figure}
@@ -124,9 +124,7 @@ Areas of Interests (AOIs) are spatial clusters of the fixations on the pages, we
 
 \begin{figure}[H]
   \centering
-  \includegraphics [width=\columnwidth]{fig_eg.jpg}
-  \\
-  \includegraphics [width=\columnwidth]{fig_eg_AOI.jpg}
+  \includegraphics [width=\columnwidth]{fig_AOI.jpg}
   \caption{left is one of the testing images. The right is the image overlapped with AOIs, which are generated using default clustering tool in Tobii studio. There are total 11 AOIs.}
   \label{fig:aoi}
 \end{figure}
@@ -276,7 +274,7 @@ The failure of the entropy based on AOI markov chain might be caused by the foll
   \centering
   \includegraphics [width=\columnwidth]{fig_eg_hm.jpg}
   \includegraphics [width=\columnwidth]{fig_eg_hm_df.jpg}
-  \caption{the heat map of the example pages in figure 3. The left is duration-weighted heat map. The right is duration-free heat map. You can see the brightness of the dots are slightly different. The two maps use Gaussian interpolation ($\sigma=30px$). Weightless means that all the kernels have the same weight.}
+  \caption{the heat map of the example pages in figure 3. The top is duration-weighted heat map. The bottom is duration-free heat map. You can see the brightness of the dots are slightly different. The two maps use Gaussian interpolation ($\sigma=30px$). Weightless means that all the kernels have the same weight.}
   \label{fig:hm}
 \end{figure}
 
@@ -400,7 +398,7 @@ It seems that a moderate Base-VAE is more welcome. A moderate Base VAE means a p
 \balance{}
 \begin{figure*}
   \centering
-  \includegraphics [width=2\columnwidth]{fig_box.pdf}
+  \includegraphics [width=1.94\columnwidth]{fig_box.pdf}
   \caption{the box diagram of VAE (left) and rVAE (right), both are duration-free. Apparently, the rVAE are more significantly separating the two classes.}
   \label{fig:box}
 \end{figure*}
@@ -414,8 +412,8 @@ It seems that a moderate Base-VAE is more welcome. A moderate Base VAE means a p
 
 \begin{figure*}
   \centering
-  \includegraphics [width=1.75\columnwidth]{fig_outlier.jpg}
-  \caption{the outlier page}
+  \includegraphics [width=2.1\columnwidth]{fig_outlier.jpg}
+  \caption{the left is the outlier page. The right is a revised version, in which some local saliencies have been slightly changed.}
   \label{fig:out}
 \end{figure*}
 
@@ -458,14 +456,14 @@ The larger the number of subjects, the smaller the testing error. However, it al
 
 \begin{figure}
   \centering
-  \includegraphics [width=0.9\columnwidth]{fig_corr_t.jpg}
-  \caption{ four curves represent VAE and rVAE (both with and without duration weights), their correlations to the aesthetic scores developing over the time line. It is clear that rVAEs keeps below the VAEs after 1000ms. It seems that the rVAEs could perform better even after the 3000ms.}
+  \includegraphics [width=0.9\columnwidth]{fig_corr_t.pdf}
+  \caption{ four curves represent VAE and rVAE (both with and without duration weights), their correlations to the aesthetic scores developing over the time line. It is clear that rVAEs keeps below the VAEs after 1000ms. It seems that the rVAEs could perform better after the 3000ms.}
   \label{fig:corr-t}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics [width=0.9\columnwidth]{fig_vae_user_inc.jpg}
+  \includegraphics [width=0.9\columnwidth]{fig_user.pdf}
   %\includegraphics [width=80mm]{fig_vae_user.jpg}
   \caption{four curves represent VAE and R-VAE (both with and without duration weights), their correlations to the aesthetic scores changing by gradually increasing the number of subjects.}
   \label{fig:with-user}
@@ -473,8 +471,8 @@ The larger the number of subjects, the smaller the testing error. However, it al
 
 \begin{figure}
   \centering
-  \includegraphics [width=0.9\columnwidth]{fig_vae_sigma.jpg}
-  \caption{Two curves are for duration-weighted and duration-free VAEs. Their Pearson correlations with aesthetics smoothly changing by gradually increased sigma}
+  \includegraphics [width=0.9\columnwidth]{fig_sigma.pdf}
+  \caption{Two curves are for duration-weighted and duration-free VAEs. Their Pearson correlations with aesthetics smoothly changing by gradually increased $\sigma$}
   \label{fig:with-sigma}
 \end{figure}
 
