@@ -6,15 +6,16 @@ end
 cvs0 = zeros(1280, 800);
 load data
 out = cell(1, maxsigma);
-for sigma = 1:maxsigma
-    sigma
+parfor sigma = 1:maxsigma
     kernel = getKernel('gauss', sigma);
-    rvae = zeros(1, max(pics));
-    for pic = pics
-        pic
+    rvae = zeros(1, 42);
+    for pic = 1:42
+        if pic == 5 || pic == 18
+            continue
+        end
         cvs = cvs0;
-        bvae = zeros(1, max(users));
-        for user = users
+        bvae = zeros(1, 30);
+        for user = 1:30
             bcvs = cvs0;
             fixmat = fixations{user, pic};
             n = size(fixmat, 1);
