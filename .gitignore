@@ -15,3 +15,5 @@
 *.gz
 *.bak
 *.log
+*.out
+*.dvi
