@@ -271,11 +271,9 @@ Here we introduce a new entropy metric based on the heatmap, which is the best-k
 \begin{figure}[H]
   \centering
   \includegraphics [width=\columnwidth]{fig_eg_hm.jpg}
-  \caption{The heatmap of the example pages in figure \ref{fig:aoi}.}
+  \caption{The heatmap of the example pages in figure \ref{fig:aoi}. It visualizes the spatial probability distribution of fixations on the page.}
   \label{fig:hm}
 \end{figure}
-
-heatmap visualizes the spatial probability distribution of fixations on a page.
 
 Considering a two-dimensional random variable $(X, Y)$ which represents the position of a fixation, the resolution of the screen constitutes its probability space (i.e., each pixel is a possible position for a fixation).
 Based on the probability distribution $P(X, Y)$, The visual entropy is defined as:
@@ -284,19 +282,19 @@ where: $$\sum_{i=1}^{1280}\sum_{i=1}^{800}~P(x_i, y_j)~=~1$$
 
 $P(X, Y)$, the probability distribution of $(X, Y)$, which is actually the heatmap, is posterior and can be estimated by the eye tracking data.
 
-The entropy of the gazemap reflects the consistency or agglomeration of the subjects' eye movements in the space: when all the gazes concentrate on a single pixel, it yields the smallest value, and when the gazes are evenly scattered on the screen, it yields the maximum value.
+The entropy of the heatmap reflects the consistency or agglomeration of the subjects' eye movements in the space: when all the gazes concentrate on a single pixel, it yields the smallest value, and when the gazes are evenly scattered on the screen, it yields the maximum value.
 
-To estimate the $p(X, Y)$ with the small sample of fixations, an important technique is Gaussian mixture, which interpolates all the fixations by placing a Gaussian kernel at each observed fixations.
+To estimate the $P(X, Y)$ with the small sample of fixations, an important technique is Gaussian mixture, which interpolates all the fixations by placing a Gaussian kernel at each observed fixations.
 
 For a single fixation $(x_0, y_0, d)$, where $x$ is the horizontal position, $y$ is the vertical position and $d$ is the duration,
 The expression of the kernel is
 $$d\cdot e^{-\frac{(x-x_0)^2 + (y-y_0)^2}{2\sigma^2}}$$
-Where $\sigma$ is the standard deviation of the kernel
-Notice that the expression is not the standard normalized gauss distribution as the model will be normalized finally to make sure the total probability $\sum\sum p(X,Y) = 1 $. % ÎÒ¸Ä¶¯ÁËÒ»µãÎÄ×Ö
+Where $\sigma$ is the standard deviation of the kernel.
+Notice that the expression is not the standard normalized gauss distribution as the model will be normalized finally to make sure the total probability $\sum\sum P(X,Y) = 1 $. % ï¿½Ò¸Ä¶ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 Placing a proper size Gaussian at a fixation is also reasonable given the fact that the fixation is actually a round area corresponding to the fovea. In addition, the fixation in reality is not absolutely fixed due to the fixational movements\cite{Martinez2004}. The mixture model also tolerates the unavoidable measurement error of the eye tracker. Figure \ref{fig:hm} is a typical heatmap with $\sigma=30px$.
 
-The visual entropies of 40 pages based on their heatmaps were turned out to be negatively correlated with their aesthetic scores. Pearson correlation r= -0.5412. ANOVA f=15.79 p = 0.0003. The results are significant.
+The visual entropies of 40 pages based on their heatmaps were turned out to be negatively correlated with their aesthetic scores. Pearson correlation r= -0.5412. ANOVA F = 15.79 P = 0.0003. The results are significant.
 
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -318,7 +316,7 @@ To solve this problem, we introduced a concept we call relative VAE (rVAE). To c
 
 $$bVAE~=~\frac{1}{n}\sum_{i=1}^n VAE(P_i)$$
 
-Where $VAE(P_i)$ is the individual VAE measured on $i^{th}$ subject.
+Where n is the number of subjects, $VAE(P_i)$ is the individual VAE measured on $i^{th}$ subject.
 With the bVAE as a precondition, now we get the rVAE:
 
 \begin{equation}
@@ -326,7 +324,7 @@ rVAE = \frac{VAE}{bVAE}
 \label{formula:rvae}
 \end{equation}
 
-Compared to VAE, The performance of rVAE was significantly improved, the Pearson correlations are increased: from r= -0.54 to r= -0.66. ANOVA F=26.84 with P-value=0.000008
+Compared to VAE, The performance of rVAE was significantly improved, the Pearson correlations are increased: from r= -0.54 to r= -0.66. ANOVA F=26.84 with P-value=0.000008.
 
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -339,7 +337,7 @@ Compared to VAE, The performance of rVAE was significantly improved, the Pearson
 \label{tab:ANOVA-rvae-dw}
 \end{table}
 
-The formula \ref{formula:rvae} indicates that the higher the bVAE, the lower the rVAE, therefore demonstrating the aesthetics. This is not fully true, however, and in reality the higher bVAE may result in possibly a much higher VAE, since the two indices are significantly correlated (r = 0.7). see Table \ref{tab:corr}
+The formula \ref{formula:rvae} indicates that the higher the bVAE, the lower the rVAE, therefore demonstrating the aesthetics. This is not fully true, however, and in reality the higher bVAE may result in possibly a much higher VAE, since the two indices are significantly correlated (r = 0.77). see Table \ref{tab:corr}
 
 \begin{table}[H]
 \begin{tabular}{l|rrrrrr}
@@ -354,7 +352,7 @@ The formula \ref{formula:rvae} indicates that the higher the bVAE, the lower the
 \label{tab:corr}
 \end{table}
 
-On other hand, generally a lower bVAE is corresponding to a lower VAE. Apparently this does not mean a lower rVAE either. The analysis shows that aesthetic score is weakly correlated with Number of Fixation (r=0.33). So the good pages are generally have more fixations (interesting points). And bVAE is also positively correlated with Number of Fixation (r=0.59). This implies the good web pages generally are not based on lower bVAEs. Those facts may also explain why bVAE has ignorable linear correlation with the aesthetic score (r=-0.11). Figure \ref{fig:bvae} shows bVAE has no difference between the good and bad pages.
+The analysis shows that aesthetic score is weakly correlated with Number of Fixation (r=0.33). So the good pages are generally have more fixations (interesting points). And bVAE is also positively correlated with Number of Fixation (r=0.61). This implies the good web pages generally are not based on lower bVAEs. Those facts may also explain why bVAE has ignorable linear correlation with the aesthetic score (r=-0.11). Figure \ref{fig:bvae} shows bVAE has no difference between the good and bad pages.
 
 \begin{figure}[H]
   \centering
@@ -391,10 +389,14 @@ Figure \ref{fig:box} is the ANOVA boxplots of VAE and rVAE. Figure \ref{fig:with
 
 \subsection{Outlier}
 
-Comparing the two scatter plots in Figure \ref{fig:with-score}, we find that generally that the points with higher scores (above 0.5) move slightly to the left, while the points with lower scores skew right. Make them more separable. However, there are still some misclassified cases. An outlier (see the dot tagged 24) extremely deviated from the general tendency. Though it has an above-average score, its VAE and especially rVAE are quite high.
+Comparing the two scatter plots in Figure \ref{fig:with-score}, we find that generally the points with higher scores (above 0.5) move slightly to the left, while the points with lower scores skew right. Make them more separable. However, there are still some misclassified cases. An outlier (see the dot tagged 24) extremely deviated from the general tendency. Though it has an above-average score, its VAE and especially rVAE are quite high.
 
-Checking the original image of the page (see Figure \ref{fig:out} left), we have to say that this is an acceptable-looking webpage with many attractive aspects, such as nice pictures, colors, symmetrical layout and so on. From a designer¡¯s point of view, however, it still has much room for improvement. If you display it on full screen, you can feel your eyes a little strained with selection pressure. This may be attributed to some intensive contrasts in peripheral areas of the view. Figure xx right is a slightly revised version of the page. It demonstrates how trivial details can make different impression. VAE is essentially affected by bottom-up, low-level image features such as edge contrast or complexity. So, we believe that the VAE has exactly captured the unpleasant in observers¡¯ eyes. it does not appear to be experimental error.
-There is no doubt that fluency of visual attention (VAE) is an influential factor to our aesthetic judgements. it is surely not the all factors of webpage aesthetics.
+Checking the original image of the page (see Figure \ref{fig:out} left), we have to say that this is an acceptable-looking webpage with many attractive aspects, such as nice pictures, colors, symmetrical layout and so on. From a designer's point of view, however, it still has much room for improvement. If you display it on full screen, you can feel your eyes a little strained with selection pressure. This may be attributed to some intensive contrasts in peripheral areas of the view.
+Figure \ref{fig:out} right is a slightly revised version of the page. It demonstrates how trivial details can make different impression.
+VAE is essentially affected by bottom-up, low-level image features such as edge contrast or complexity.
+So, we believe that the VAE has exactly captured the unpleasant in observers' eyes.
+There is no doubt that the fluency of visual attention, which is quantified by VAE, is an influential factor to our aesthetic judgements.
+It is surely not the all factors of webpage aesthetics.
 
 \clearpage
 
@@ -459,7 +461,7 @@ A lower VAE can be interpreted to mean that we pay less effort in eye orientatio
 
 rVAE can be interpreted as a balance between using the lowest possible VAE to perceive as much as possible useful information in the constraint of the screen. This explanation is in line with the aesthetic principle, "Maximum effect for minimum means"\cite{Hekkert2006}, which is rooted in evolutionary aesthetics\cite{Shimamura2012}. The theory argues that the basic aesthetic preferences of Homo sapiens have evolved in order to enhance survival and reproductive success.
 
-Eye movements represent the collaborations of overt and covert attentions. Though we found that to predict a web page¡¯s aesthetics requires at least 1000 ms of eye-tracking data, it has been reported that our first impression of a webpage is formed as quickly as within 50-500 ms\cite{Lindgaard2006}. 50 ms is barely enough for a snapshot, and our eyes are still at their original positions. It implies that brain can make aesthetic judgements immediately upon production of the covert attention map formed by the visual residual after a mere 50-ms exposure.
+Eye movements represent the collaborations of overt and covert attentions. Though we found that to predict a web pageï¿½ï¿½s aesthetics requires at least 1000 ms of eye-tracking data, it has been reported that our first impression of a webpage is formed as quickly as within 50-500 ms\cite{Lindgaard2006}. 50 ms is barely enough for a snapshot, and our eyes are still at their original positions. It implies that brain can make aesthetic judgements immediately upon production of the covert attention map formed by the visual residual after a mere 50-ms exposure.
 
 \section{Acknowledgements}
 
