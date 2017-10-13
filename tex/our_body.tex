@@ -402,7 +402,12 @@ It is surely not the all factors of webpage aesthetics.
 
 \subsection{The stability of VAE}
 
-Figure \ref{fig:with-t} visualizes how the VAEs of 40 pages increase over time. For every moment of time t, we calculate the entropies based on the accumulated fixations during the period from 0 to t, until t = 3000ms. Then For each of the 40 pages, we get a corresponding curve over time. All the 40 curves fluctuate greatly at the beginning, and then gradually flatten and stabilize. In same way, Figure 4b visualizes how the rVAE of each pages decrease over time.
+In order to optimize the performance of VAE, we investigate how the correlation between the entropies and the aesthetic score varies with the testing time, the number of subjects and the $\sigma$ of the Gaussian kernel.
+
+For every moment of time t, we calculate the entropies based on the accumulated fixations during the period from 0 to t, until t = 3000ms,
+obtaining a VAE-t curve and a rVAE-t curve for each of the 40 pages.
+All the curves fluctuate greatly at the beginning, and then gradually flatten and stabilize.
+Figure \ref{fig:with-t} visualizes how the VAEs of 40 pages increase and rVAEs decrease over time.
 
 The blue curves represent the aesthetically good pages while the red curves represent the bad pages. Apparently, the good pages consistently yield lower VAE and rVAE. In addition, the two groups are more separated at the end.
 
@@ -414,29 +419,26 @@ The blue curves represent the aesthetically good pages while the red curves repr
   \label{fig:with-t}
 \end{figure}
 
-In order to optimize the performance of VAE, we investigate how the correlation between the entropies and the aesthetic score varies with the testing time, the number of subjects and the $\sigma$ of the Gaussian kernel.
-
 Figure \ref{fig:corr-t} visualizes how the correlations between the entropies and the aesthetics developing over the testing time. The correlations become most significant at 3s. As we did not record the eye movements after 3s, we are not able to see the development afterwards. We suppose the correlation can be stronger, judging from the tendency, which keeps decreasing.
 
 \begin{figure}[H]
   \centering
   \includegraphics [width=\columnwidth]{fig_corr_t.pdf}
-  \caption{curves representing VAE and R-VAE, showing their correlations to the aesthetic scores developing over the timeline. It is clear that R-VAEs consistently sit below the VAEs after 1000 ms. It seems that both curves, especially the R-VAEs could perform better after 3000 ms.}
+  \caption{curves representing VAE and rVAE, showing their correlations to the aesthetic scores developing over the timeline. It is clear that rVAEs consistently sit below the VAEs after 1000 ms. It seems that both curves, especially the rVAEs could perform better after 3000 ms.}
   \label{fig:corr-t}
 \end{figure}
 
 Figure \ref{fig:with-user} visualizes how increasing the numbers of subjects gradually stabilize the performances of the visual entropies. They gradually become stable by enlarging the sample groups of subjects, sized 2, 3, 4... 29, which are generated at random from the total 30 subjects.
 The correlations are gradually stabilized with the increasing number of subjects.
+It seems the larger the number of subjects, the more significant the correlations. However, larger number of subjects also means more time and more money.
 
 \begin{figure}[H]
   \centering
   \includegraphics [width=\columnwidth]{fig_user.pdf}
   %\includegraphics [width=80mm]{fig_vae_user.jpg}
-  \caption{curves represent VAE and R-VAE, their correlations to the aesthetic scores changing by gradually increasing the number of subjects.}
+  \caption{curves represent VAE and rVAE, their correlations to the aesthetic scores changing by gradually increasing the number of subjects.}
   \label{fig:with-user}
 \end{figure}
-
-It seems the larger the number of subjects, the more significant the correlations. However, larger number of subjects also means more time and more money.
 
 Until now, all the analysis of the entropies is based on the heatmap with Gaussian $\sigma=30px$. How sensitive is the performance when the $\sigma$'s value is changing?
 
@@ -449,19 +451,22 @@ Figure \ref{fig:with-sigma} visualizes the Pearson correlations changing smoothl
   \label{fig:with-sigma}
 \end{figure}
 
-The above analysis verified the stability of the VAE and rVAE in predicting our aesthetic judgements. And evidently, their performances could be better, if a slightly longer tracking time, a larger number of subjects and a proper sigma value were used.
+The above analysis verified the stability of the VAE and rVAE in predicting our aesthetic judgements.
+And evidently, their performances could be better, if with a slightly longer tracking time, a larger number of subjects and a proper $\sigma$ value.
 
 \section{Discussion and Conclusion}
 \label{sec:dis}
-The experiment demonstrated that our aesthetic judgments to webpages do relate to our eye movement behaviors. Shannon entropy measure was tested on two aspects of the eye tracking data: gaze sequence and heat map. The entropy in heat map, VAE, was shown to be predictive of aesthetic judgements of the subjects, while the entropy in gaze series (Markov chain) was not. VAE as the entropy of visual attention can be interpreted as the chaos in allocating limited attentional resource. Its improved version, R-VAE, has significant correlation (r = -0.65) with our perceived aesthetics. This single metric alone can predict whether a webpage aesthetically pleasing or not  to a certain degree.
+The experiment demonstrated that our aesthetic judgments to webpages do relate to our eye movement behaviors. Shannon entropy measure was tested on two aspects of the eye tracking data: gaze sequence and heat map. The entropy in heat map, VAE, was shown to be predictive of aesthetic judgements of the subjects, while the entropy in gaze series (Markov chain) was not. VAE as the entropy of visual attention can be interpreted as the chaos in allocating limited attentional resource. Its improved version, rVAE, has significant correlation (r = -0.65) with our perceived aesthetics. This single metric alone can predict whether a webpage aesthetically pleasing or not  to a certain degree.
 
 The success of VAE is at least partially attributable to interpolation with Gaussians, in the belief that the fixation distribution is continuous. And projecting the fixations during all the 3s on a single plane makes the data points denser. The failure of the entropy in gaze sequence is possibly due to the extra temporal dimension making the data points much sparser. It is difficult to conclude at this point that temporal information is irrelevant to our aesthetic judgements. Perhaps in future work a more informative model can be found to solve this part of the problem.
 
-A lower VAE can be interpreted to mean that we pay less effort in eye orientation, searching, and less distraction in viewing. In other word, it has lower perceptual or attentional load. The evidence that aesthetically pleasing pages have lower VAEs supports the fluency hypothesis\cite{Reber2004}, and somewhat explains why "what is beautiful is usable"\cite{Tractinsky2000}. VAE is based on special information in eye fixations. As a new objective and quantitative index of eye tracking data, it is surely not just merely a matric for aesthetics. VAE in nature are more related to our perceptual and motor-control ability. Visual gazing has functional similarity to mouse-pointing. This explains why some visual design principles for eye guidance are quite similar to Fitts' law\cite{MacKenzie1992}.
+A lower VAE can be interpreted to mean that we pay less effort in eye orientation, searching, and less distraction in viewing. In other word, it has lower perceptual or attentional load.
+The evidence that aesthetically pleasing pages have lower VAEs supports the fluency hypothesis\cite{Reber2004}, and somewhat explains why "what is beautiful is usable"\cite{Tractinsky2000}.
+VAE is based on specific information in eye fixations. As a new objective and quantitative index of eye tracking data, it is surely not merely a metric for aesthetics. VAE in nature are more related to our perceptual and motor-control ability. Visual gazing has functional similarity to mouse-pointing. This explains why some visual design principles for eye guidance are quite similar to Fitts' law\cite{MacKenzie1992}.
 
-rVAE can be interpreted as a balance between using the lowest possible VAE to perceive as much as possible useful information in the constraint of the screen. This explanation is in line with the aesthetic principle, "Maximum effect for minimum means"\cite{Hekkert2006}, which is rooted in evolutionary aesthetics\cite{Shimamura2012}. The theory argues that the basic aesthetic preferences of Homo sapiens have evolved in order to enhance survival and reproductive success.
+rVAE can be interpreted as using the lowest possible VAE to perceive as much useful information as possible in the constraint of the screen. This explanation is in line with the aesthetic principle, "Maximum effect for minimum means"\cite{Hekkert2006}, which is rooted in evolutionary aesthetics\cite{Shimamura2012}. The theory argues that the basic aesthetic preferences of Homo sapiens have evolved in order to enhance survival and reproductive success.
 
-Eye movements represent the collaborations of overt and covert attentions. Though we found that to predict a web page��s aesthetics requires at least 1000 ms of eye-tracking data, it has been reported that our first impression of a webpage is formed as quickly as within 50-500 ms\cite{Lindgaard2006}. 50 ms is barely enough for a snapshot, and our eyes are still at their original positions. It implies that brain can make aesthetic judgements immediately upon production of the covert attention map formed by the visual residual after a mere 50-ms exposure.
+Eye movements represent the collaborations of overt and covert attentions. Though we found that to predict a web page's aesthetics requires at least 1000 ms of eye-tracking data, it has been reported that our first impression of a webpage is formed as quickly as within 50-500 ms\cite{Lindgaard2006}. 50 ms is barely enough for a snapshot, and our eyes are still at their original positions. It implies that brain can make aesthetic judgements immediately upon production of the covert attention map formed by the visual residual after a mere 50-ms exposure.
 
 \section{Acknowledgements}
 
