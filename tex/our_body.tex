@@ -2,34 +2,32 @@
 \section{Introduction}
 \label{sec:intro}
 Aesthetics is an important factor for engaging users in browsing a website.
-Big data reveal that most visitors will determine whether to stay on or leave a webpage within just a few seconds after landing\cite{Liu2010}.
+Big data reveals that most visitors will determine whether to stay on or leave a webpage within just a few seconds after landing \citep{Liu2010}.
 Appealing webpages give users a greater sense of trust
-\cite{Casal2008The}
-\cite{Li2010Increasing}
-\cite{Lindgaard2011}.
-Beautiful webpages are seemingly more usable\cite{Tractinsky2000}.
+\citep{Casal2008The, Li2010Increasing, Lindgaard2011}.
+Beautiful webpages are seemingly more usable \citep{Tractinsky2000}.
 
-"Aesthetics" is rooted in the Greek term for "to perceive".
+"Aesthetics" is rooted in the Greek term "aisthetikos", meaning "to perceive".
 The human visual system, the eye and the connected cortex behind, enables us to perceive and recognize beauty around us.
-An eye behaves like a spotlight\cite{Eriksen1972}: It has a narrow but very high-resolution foveal vision surrounded with a broader but much lower resolution peripheral area.
-Visual attention keeps selecting where this spotlight moves toward and focuses upon, targeting things like faces, words, images on screens, and a variety of other meaningful objects, bringing salient details into the focus and filtering out background clutter.
-The spotlight keeps glancing from one spot to another and our brain pieces all snapshots together to get an overall clear image of the scene.
+An eye behaves like a spotlight \citep{Eriksen1972}: It has a narrow but very high-resolution foveal vision surrounded with a broader but much lower resolution peripheral area.
+Visual attention keeps selecting where this spotlight moves toward and focuses upon, targeting things like faces, words, images on screens, and a variety of other meaningful objects, bringing salient details into focus and filtering out background clutter.
+The spotlight keeps darting from one spot to another and our brain pieces all snapshots together to get a clear overall image of the scene.
 
 Eye-tracking devices are designed for recording fixations (gaze) and saccades (eye movements).
 In usability and marketing research, eye tracking has been used to evaluate the accessibility of key information.
-Though useful, this is still a fairly limited measure of user experience\cite{Santella}.
+Though useful, this is still a fairly limited measure of user experience \citep{Santella}.
 
 Is it possible to use eye tracking to anticipate observers' aesthetic satisfaction with a webpage in the fashion of a mind reader?
-This paper reports our effort to answer this question.
-The results are positive, giving some evidences that eye-tracking devices do enable some new sense of beauty, as it where, in the eye of the beholder.
+This paper reports our efforts to answer this question.
+The results are positive, giving evidence that eye-tracking devices do enable some new sense of beauty, as it where, in the eye of the beholder.
 
 Thirty observers' visual explorations of 40 webpages were recorded individually using an eye tracker under normal laboratory conditions. The eye tracking duration for each page and each person was 3000 ms.
 The webpages were later rated by the observers based on their personal aesthetic judgments.
 Shannon entropy was introduced to analyze the eye tracking data.
-The result shows that the entropy in heatmap (attention map), named visual attention entropy (VAE), is highly correlated with the observers' aesthetic judgements of the webpages. Its improved version, relative VAE (rVAE), has more significant correlation with the perceived aesthetics (r=-0,65; F= 26.84,P<0.0001).
-This single metric alone can differentiate good or bad looking web pages to a certain degree (about 85\%). Further investigation reveals that the performance of both VAE and rVAE became stable after 1 second. The curves indicate that their performances could be better if the tracking duration were longer than 3 seconds.
-The entropy can be interpreted as an objective and quantitative metric of chaos in our attentional processes.
-Therefore it could be the direct evidence to the fluency hypothesis\cite{Reber2004}, which proposes that beauty is grounded in the processing experience of the perceiver.
+The result shows that the entropy in heatmap (attention map), named visual attention entropy (VAE), is highly correlated with the observers' aesthetic judgements of the webpages. Its improved version, relative VAE (rVAE), has more significant correlation with the perceived aesthetics (r=-0,65; F= 26.84, P$<$0.0001).
+This single metric alone can differentiate between good- or bad- looking web pages to a certain degree (appr. 85\%). Further investigation reveals that the performance of both VAE and rVAE became stable after 1 second. The curves indicate that their performances could be better if the tracking duration were longer than 3 seconds.
+The entropy can be interpreted as an objective and the quantitative metric of chaos in our attentional processes.
+Therefore, it could be direct evidence to the fluency hypothesis \citep{Reber2004}, which proposes that beauty is grounded in the processing experience of the perceiver.
 The more fluently perceivers can process an object, the more positive their aesthetic response.
 
 \section{Related Work}
@@ -37,49 +35,49 @@ The more fluently perceivers can process an object, the more positive their aest
 \subsection{Eye tracking and experimental aesthetics}
 It is a natural thought that our eye's attentional responses may have relations with our sensory contemplation or appreciation of an object.
 
-To examine how eye movements relate to judging aesthetically pleasing works of art, Berlyne\cite{Berlyne1971} concluded that aesthetic evaluations are based on two types of visual exploration, one a global, diverse exploration and the other a local, specific information gathering.
+To examine how eye movements relate to judging aesthetically pleasing works of art, \Citet{Berlyne1971} concluded that aesthetic evaluations are based on two types of visual exploration: one a global, diverse exploration and the other a local, specific information gathering.
 The diverse exploration is characterized by long saccades and short fixation (gaze) durations, while specific information gathering has longer fixation durations and shorter saccades.
 Berlyne proposed that the pattern of exploration, featured by the oscillation of the durations and saccade lengths, is crucial for judging images as aesthetically pleasing or not.
 Berlyne's concept of visual exploration was influential to the following studies.
-Locher\cite{Locher2006} demonstrated that simply altering the color-balance of the original abstract compositions will change the distribution of gaze and scan path.
-Franke et al.\cite{Franke2008} observed an increased number of eye fixations and longer durations on more preferable 3-D renderings.
-Plumhoff\cite{Plumhoff2009} observed that with pleasant graphics, fixation durations are increasing and saccade lengths fluctuate more over the viewing period.
-Wallraven et al.\cite{Wallraven2009}, analyzed eye-tracking data from 20 participants who looked at 275 artworks from different periods of styles, and found a strong effect of art period (style) on both the number and duration of fixations.
-Massaro et al.\cite{Massaro} used categorized (color, grey, human, and nature) art paintings as test material to investigate the contributions of bottom-up and top-down processes of visual attention to eye-scanning on the art paintings.
-Khalighy et al.\cite{Khalighy2015} developed an empirical aesthetic formula by conducting three eye-tracking experiments on simple geometric forms of stimuli.
+\Citet{Locher2006} demonstrated that simply altering the color-balance of the original abstract compositions will change the distribution of gaze and scan path.
+\Citet{Franke2008} observed an increased number of eye fixations and longer durations on more preferable 3-D renderings.
+\Citet{Plumhoff2009} observed that with pleasant graphics, fixation durations increase and saccade lengths fluctuate more over the viewing period.
+\Citet{Wallraven2009}, analyzed eye-tracking data from 20 participants who looked at 275 artworks from different periods of styles, and found a strong effect of the art period (style) on both the number and duration of fixations.
+\Citet{Massaro} used categorized (color, grey, human, and nature) art paintings as test material to investigate the contributions of bottom-up and top-down processes of visual attention to eye-scanning on the art paintings.
+\Citet{Khalighy2015} developed an empirical aesthetic formula by conducting three eye-tracking experiments on simple geometric forms of stimuli.
 He concluded that beauty is positively related to the product of the number of fixations and the standard deviation of the duration.
 
-These researches above revealed the potential of eye tracking in aesthetic studies.
+These aforementioned studies above revealed the potential of eye tracking in aesthetic studies.
 The results so far, however, do not go significantly beyond Berlyne's initial work.
 Some reported observations, such as the increased number of fixations, longer duration and oscillation of saccade lengths, etc., merely confirmed Berlyne's notion that eye activity on aesthetically pleasing objects is more active and dynamic.
 It is difficult to interpret these results from an aesthetics point of view.
 Although eye tracking has been increasingly used for aesthetics experiments, there is little research giving a convincing in-depth interpretation about how the eye's behavior connects with aesthetic responses.
 
 \subsection{Eye tracking and webpage aesthetics}
-Research on webpage aesthetics primarily focuses on finding predictable features within webpages such as visual complexity and order\cite{Deng2010}; low-level image statistics\cite {Zheng}; high level objective design metrics \cite{Ivory}. Seckler 2015 \cite{Seckler2015Linking} examined how design factors such as structure and color are linked to different facets of subjective aesthetic perception of webpages.
-Reinecke et al.\cite{Reinecke} introduced computational models of perceived visual complexity and colorfulness of webpages, and they found the two models are predictive to people's aesthetic preferences.
+Research on webpage aesthetics primarily focuses on finding predictable features within webpages such as visual complexity and order \citep{Deng2010}; low-level image statistics \citep{Zheng}; high level objective design metrics \citep {Ivory}. \Citet{Seckler2015Linking} examined how design factors such as structure and color are linked to different facets of subjective aesthetic perception of webpages.
+\Citet{Reinecke} introduced computational models of perceived visual complexity and colorfulness of webpages, and they found the two models are predictive of people's aesthetic preferences.
 
 Eye tracking has been extensively used in webpage evaluations for visualizing accessibility or interest bias toward specific objects.
 Existing visualization and analysis tools have nothing to do with the user experience of aesthetics.
-Proven quantitative links between eye movements and aesthetics are still lacking\cite{Santella}.
-Can eye-tracking data provides a more general means of quantifying a viewer's aesthetic experience?
+Proven quantitative links between eye movements and aesthetics are still lacking \citep{Santella}.
+Can eye-tracking data provide a more general means of quantifying a viewer's aesthetic experience?
 Answering this question may require some new perspectives to abstract and interpret the eye-tracking data.
 
 \section{Hypothesis}
 \label{sec:hyp}
 Our idea is derived from the fluency hypothesis.
-Reber et al.\cite{Reber2004} propose that beauty is grounded in perceivers' fluency of processing an object.
+\Citet{Reber2004} proposed that beauty is grounded in a perceivers' fluency of processing an object.
 Viewing a webpage is essentially a procedure of image processing in the human visual system.
-How to evaluate the fluency of this procedure?
+How do we evaluate the fluency of this procedure?
 Is there any observable behavioral difference between fluent and influent visual processes?
 Eye movement, as the visible part of our attention, serves as a precursor to all other neurological and cognitive functions.
-If the aesthetic pleasure is a function of the perceiver's processing dynamics\cite{Reber2004}, the attentional process must be the doorway to our aesthetic judgements.
+If the aesthetic pleasure is a function of the perceiver's processing dynamics \citep{Reber2004}, the attentional process must be the doorway to our aesthetic judgements.
 
-At its most basic, attention is defined as the process by which we select a subset from all of the available information for further processing\cite{Eriksen1972}.
+At its most basic, attention is defined as the process by which we select a subset from all of the available information for further processing \citep{Eriksen1972}.
 We propose that a fluent attentional process may have:
 \begin{enumerate}
-  \item Less conflict and more easy in competitive selection, which is the process determining which visual object gains access to working memory, between multiple attention cues.
-  \item Less distraction and more easy in orienting and localizing attention onto an interesting object.
+  \item Less conflict and more ease in competitive selection, which is the process determining which visual object gains access to working memory, between multiple attention cues.
+  \item Less distraction and more ease in orienting and localizing attention onto an interesting object.
 \end{enumerate}
 
 To quantitatively measure the fluency of visual attention, this paper adopts entropy as the metric to the fluency/chaos in our visual attention behaviors and further explores whether it correlates with our aesthetic judgements. Several existing indices mentioned in section\ref{sec:rel} will also be investigated.
@@ -87,51 +85,51 @@ To quantitatively measure the fluency of visual attention, this paper adopts ent
 The Entropy measure will be applied on two aspects of eye-tracking data:
 \begin{itemize}
   \item Entropy in gaze plot (Saccade sequence) represents the complexity and uncertainty in the temporal order of attentional shifts among multi-objects.
-  \item Entropy in heatmap (Fixation distribution) represents the level of noise and deconcentration of spatial allocation of attention on the given objects.
+  \item Entropy in heatmap (Fixation distribution) represents the level of noise and de-concentration of spatial allocation of attention on the given objects.
 \end{itemize}
 
 \begin{figure*}
   \centering
-  \includegraphics [width=1.75\columnwidth]{fig_all.jpg}
-  \caption{All the pages used in our eye-tracking test are arranged from top to bottom, left to right according to their scores, from low to high.}
+  \includegraphics [width=\columnwidth]{fig_all.jpg}
+  \caption{All the pages used in our eye-tracking test are arranged from top to bottom, left to right according to their scores from low to high.}
   \label{fig:all}
 \end{figure*}
 
 \clearpage
 \section{Experiment and data collection}
 \label{sec:exp}
-The experiment simulates natural and accidental landings on websites. The only unnatural part of the experiment is the form we call Time-limited Exploration. That means the experiment encourages the observers to do quick general explorations on the pages. After three pages of dummy testing in advance, the observers should aware that they only have a few seconds to view each of the pages displayed. This is acceptable because we knew that users are used to making a quick decision whether stay or leave in first seconds after landing a new page to avoid wasting more time than necessary on bad pages\cite{Liu2010}.
+The experiment simulates natural and accidental landings on websites. The only unnatural part of the experiment is the form we call Time-limited Exploration. That means the experiment encourages the observers to do quick general explorations on the pages. After three pages of dummy testing in advance, the observers should have been aware that they only had a few seconds to view each of the pages displayed. This is acceptable because we knew that users are used to making a quick decision whether staying or leaving in the first seconds after landing a new page to avoid wasting more time than necessary on bad pages \citep{Liu2010}.
 
 The restricted exposure time could be enough to allow us to examine the early unintentional gazing behavior, and at the same time avoiding the fatigue of the observers.
 
 \subsection{Equipment}
-The eye tracker used was a Tobii T60 that works with Tobii Studio software. The resolution of the eye tracker is 1280 pixels by 1024 pixel.
+The eye tracker used was a Tobii T60 that works with the Tobii Studio software. The resolution of the eye tracker is 1280 pixels by 1024 pixel.
 
 \subsection{Materials}
-We selected snapshots of 40 websites' home pages as the testing material. To make the webpages more representative of high and low aesthetic qualities, we sampled pages from \url{https://www.thebestdesigns.com} and a site that collects votes for ugly web designs \url{https://websitesfromhell.net/}, and only selected the odd-numbered pages in the collections.
+We selected snapshots of 40 websites' home pages as the testing material. To make the webpages more representative of high and low aesthetic qualities, we sampled pages from https://www.thebestdesigns.com and a site that collects votes for ugly web designs https://websitesfromhell.net/, and only selected the odd-numbered pages in the collections.
 
-Pages that contained non-Latin characters or well known logos and faces were removed to limit the evaluation to visual rather than sociocultural aspects. Finally, we narrowed our selection to 20 webpages from each site. All pages were captured in landscape form at a resolution of 1280 pixels by 800 pixels to match the screen of the eye tracker.
+Pages that contained non-Latin characters or well-known logos and faces were removed to limit the evaluation to visual rather than socio-cultural aspects. Finally, we narrowed our selection to 20 webpages from each website. All pages were captured in landscape form at a resolution of 1280 pixels by 800 pixels to match the screen of the eye tracker.
 The snapshot includes the frame of the web browser in order to better contextualize the experience to that of real web browsing.
 Figure \ref{fig:all} shows all of the pages used as the stimuli.
 
 \subsection{Subjects}
-A total of 30 subjects (13 men, 17 women) participated in the eye tracking experiment. All were students from a number of departments in Shanghai Jiao Tong University. Some of them were foreign students from South Korea. Ages were between 19 and 27 years old.
+A total of 30 subjects (13 men, 17 women) participated in the eye tracking experiment. All were students from a number of departments in the university. Some of them were foreign students. Ages were between 19 and 27 years old.
 
 \subsection{Site setting}
-The experiment was conducted in a quiet room. The curtains of the room were pulled up to avoid uncontrollable light and reflections.
+The experiment was conducted in a quiet room. The curtains of the room were pulled closed to avoid uncontrollable light and reflections.
 The eye tracker was placed in front of a pure white wall to avoid possible distractions.
 
 \subsection{Procedure}
-The subjects were instructed to browse those webpages as though they were aimlessly wandering on the web. Each was seated in an office chair, and asked to lean forward to rest his/her chin comfortably on a soft, high support to fix his/her head 60cm from the eye-tracker screen. The subject's elbows rested on the table with a mouse in one hand, although any clicking and scrolling did not produce an interaction response.
+The subjects were instructed to browse the webpages as though they were aimlessly wandering on the web. Each was seated in an office chair, and asked to lean forward to rest his/her chin comfortably on a soft, high support to fix his/her head 60cm from the eye-tracker screen. The subject's elbows rested on the table with a mouse in one hand, although any clicking and scrolling did not produce an interaction response.
 
 In order to reduce fatigue, the test was divided into two phases, with a minute of rest in between. During each phase, the screen of the tracker automatically displayed half of the total of 40 experimental pages in a random sequence. Each page was presented for only 3 seconds, followed by 1 second of black screen. Three dummy pages were placed at the beginning of each phase to make the subjects feel comfortable with the rhythm of the test. During the eye tracking, there was no interaction between the operator and the subjects.
 
-The subjective ratings of the pages were arranged separately after the experiment. Each subject was asked to review individually the experimental pages once again and judge the aesthetic quality of "good" or "bad" for each page. All subjects confirmed that they had never seen the pages before.
+The subjective ratings of the pages were arranged separately after the experiment. Each subject was asked to review individually the experimental pages once again and judge the aesthetic quality of each page to be "good" or "bad". All subjects confirmed that they had never seen the pages before.
 
 \subsection{Data collection}
 Each page in the test was given a final score based on how many "good" or "bad" scores it received. Figure \ref{fig:score} shows the distribution of the scores of the 40 pages.
 
-The distribution is apparently bimodal. The 20 pages with scores less than 0.5 are exactly the same pages collected from \url{https://websitesfromhell.net/}. In other words, these 20 pages were recognized as "bad" pages without any doubt.
+The distribution is apparently bimodal. The 20 pages with scores less than 0.5 are exactly the same pages collected from https://websitesfromhell.net/. In other words, these 20 pages were recognized as "bad" pages without any doubt.
 
 \begin{figure}[H]
   \centering
@@ -161,7 +159,7 @@ The indices we applied include:
   \item std of AOI fixNum
 \end{itemize}
 
-Areas of interest(AOI) are spatial clusters of the fixations on the pages. We uses the default AOI clustering algorithm in the Tobii Studio package. Figure \ref{fig:aoi} is an AOI example obtained by the clustering.
+Areas of interest(AOI) are spatial clusters of the fixations on the pages. We used the default AOI clustering algorithm in the Tobii Studio package. Figure \ref{fig:aoi} is an AOI example obtained by the clustering.
 
 \begin{figure}[H]
   \centering
@@ -171,10 +169,10 @@ Areas of interest(AOI) are spatial clusters of the fixations on the pages. We us
 \end{figure}
 
 The results of the analysis are listed in Table\ref{tab:traditional}. Each index has a linear correlation value with the aesthetic scores and a P-value of ANOVA test separating the "good" and "bad" classes of webpages.
-The results show that only Number of fixations barely passed the ANOVA test (P<0.05).
+The results show that only Number of fixations barely passed the ANOVA test (P$<$0.05).
 All other indices failed the ANOVA test.
 Number of fixations has a weak positive correlation with page aesthetics, more aesthetically pleasing pages generally got more gazes, implying the eyes were more active.
-Meanwhile, number of AOIs has a weak negative correlation with the page aesthetics, meaning the aesthetically pleasing page's fixations are concentrated on fewer AOIs. It may also imply that subjects were more rapidly entering the stage of specific information gathering\cite{Berlyne1971} the variables of duration seem most irrelevant to the page aesthetics. It is not so strange considering the fact that the duration can range greatly by individuals from less than 100ms to well over a second\cite{ Irwin1996}.
+Meanwhile, number of AOIs has a weak negative correlation with the page aesthetics, meaning the aesthetically pleasing page's fixations are concentrated on fewer AOIs. It may also imply that subjects were more rapidly entering the stage of specific information gathering \citep{Berlyne1971} the variables of duration seem most irrelevant to the page aesthetics. It is not so strange considering the fact that the duration can range greatly by individuals from less than 100ms to well over a second \citep{ Irwin1996}.
 
 \begin{table}[H]
   \centering
@@ -201,55 +199,55 @@ Definitions of entropy reside in the fields of thermodynamics and information th
 
 The visual entropies defined in this paper are based on Shannon entropy, the entropy in information theory. Shannon entropy is a measure of the uncertainty based on the probabilities of all possible events.
 
-The entropy $H$ (Greek capital letter eta) of a discrete random variable $X$ with possible values $\{x_1, ..., x_n\}$ and probability mass function $P(X)$ is defined as
+The entropy $H$ (Greek capital letter eta) of a discrete random variable $X$ with possible values $\{x_1, ..., x_n\}$ and the probability mass function $P(X)$ is defined as
 $$H(X)~=~-\sum_{i=1}^n P(x_i)\cdot log_{2}P(x_i)$$
 The larger the $H(X)$, the higher the degree of chaos on the distribution of $X$, the greater the amount of uncertainty, whereas the smaller the $H(X)$, the more ordered the distribution of $X$ and the smaller the amount of uncertainty.
 
 In the following, we analyze the visual entropies from two aspects of the eye-tracking data: saccades (gaze transitions) and gaze distribution (heatmap).
 
 \subsubsection{Entropy in gaze transitions}
-Entropy of eye movements was first introduced by Tole et al.\cite{Tole1983} as a measure of cognitive loads, describing the changes of looking behaviors of eleven pilots in the conditions of different tasks. The model was also adopted in analysis of eye-tracking data for car driving\cite{Gilland2008}. Hooge\cite{Hooge2013} used a similar metric called "Scan path entropy" to quantify gaze guidance to a specified target.
+Entropy of eye movements was first introduced by \Citet{Tole1983} as a measure of cognitive loads, describing the changes of looking behaviors of eleven pilots in the conditions of different tasks. The model was also adopted in analysis of eye-tracking data for car driving \citep{Gilland2008}. \Citet{Hooge2013} used a similar metric called "Scan path entropy" to quantify gaze guidance to a specified target.
 
 This paper follows Tole's definition of visual entropy based on Markov chain models.
 
-The entropy represents the uncertainty of the transition between the fixations. As we knew, the number of possible positions of fixations is $1024\times800$, equal to the resolution of the images. That is a huge space of states. To estimate the probabilities of the transitions among those states, one would need a very large sample set which is impossible to get via eye-tracking tests. Tole's solution was to reduce the number of states by subdividing the view into a number of areas. In this research, we take advantage of the system-generated AOIs. Using this method, only the inter-AOI transitions need be taken into account. Inter-AOI transitions are relatively large saccades. A transition is thought to be an attention driven mechanism that requires a slight but unconscious attentional shift from the current target to peripheral target acquisition\cite{Henderson1993}. This is similar to the concept of global exploration suggested by Berlyne\cite{Berlyne1971}. By AOI clustering, we can convert each observer's eye movements on a page into a series of AOI jump sequences.(See Table \ref{tab:seq})
+The entropy represents the uncertainty of the transition between the fixations. As we knew, the number of possible positions of fixations is $1024\times800$, equal to the resolution of the images. That is a huge space of states. To estimate the probabilities of the transitions among those states, one would need a very large sample set which is impossible to get via eye-tracking tests. Tole's solution was to reduce the number of states by subdividing the view into a number of areas. In this research, we take advantage of the system-generated AOIs. Using this method, only the inter-AOI transitions need be taken into account. Inter-AOI transitions are relatively large saccades. A transition is thought to be an attention driven mechanism that requires a slight but unconscious attentional shift from the current target to peripheral target acquisition \citep{Henderson1993}. This is similar to the concept of global exploration suggested by \Citet{Berlyne1971}. By AOI clustering, we can convert each observer's eye movements on a page into a series of AOI jump sequences.(See Table \ref{tab:seq})
 
 \begin{table}[H]
   \small
-  \begin{tabular}{l}
-    1.  6 - 7 - 11 - 3 - 11 - 10 - 9 - 2 - 3 - 4\\
-    2.  7 - 3 - 4 - 8 - 6 - 4 - 3 - 2\\
-    3.  3 - 5 - 9\\
-    4.  7 - 4 - 8 - 11 - 3 - 7 - 11\\
-    5.  7 - 4 - 8 - 11 - 4 - 7 - 2 - 9\\
-    6.  7 - 3 - 7 - 4 - 8 - 11 - 9 - 2 - 9\\
-    7.  7 - 8 - 4 - 7 - 11 - 2 - 9 - 2 - 3\\
-    8.  3 - 7 - 11 - 10 - 9 - 2 - 9 - 4\\
-    9.  7 - 11 - 2 - 6 - 7 - 8\\
-    10. 4 - 11 - 5 - 2\\
-    11. 7 - 3 - 11 - 4 - 8 - 7 - 2\\
-    12. 7 - 3 - 4 - 8 - 3 - 2 - 9\\
-    13. 6 - 3 - 4 - 8 - 3 - 10\\
-    14. 7 - 3 - 1 - 10 - 11 - 7\\
-    15. 7 - 11 - 8 - 4 - 7 - 8 - 9 - 2 - 6 - 2\\
-    16. 7 - 4 - 8 - 5 - 9 - 2 - 9\\
-    17. 11 - 7 - 11 - 10\\
-    18. 7 - 3 - 4 - 8 - 11 - 10 - 9 - 2\\
-    19. 7 - 11 - 10 - 2 - 9 - 4 - 8\\
-    20. 7 - 4 - 8 - 7 - 3 - 1 - 3\\
-    21. 7 - 11 - 10 - 2 - 9\\
-    22. 7 - 3 - 11 - 10 - 2\\
-    23. 3 - 4 - 1 - 3 - 8 - 4 - 11\\
-    24. 7 - 11 - 4 - 8 - 3 - 9 - 2 - 9\\
-    25. 7 - 4 - 8 - 3 - 2 - 9 - 8 - 4 - 11\\
-    26. 7 - 4 - 8 - 11 - 7 - 3 - 2 \\
-    27. 7 - 3 - 4 - 8 - 11 - 7\\
-    28. 6 - 7 - 8 - 4 - 7 - 8 - 11 - 4 - 2\\
-    29. 7 - 11 - 7 - 3 - 11 - 8 - 4 - 8 - 7\\
-    30. 3 - 7 - 4\\
+  \begin{tabular}{ll}
+    1. & 6 - 7 - 11 - 3 - 11 - 10 - 9 - 2 - 3 - 4\\
+    2. & 7 - 3 - 4 - 8 - 6 - 4 - 3 - 2\\
+    3. & 3 - 5 - 9\\
+    4. & 7 - 4 - 8 - 11 - 3 - 7 - 11\\
+    5. & 7 - 4 - 8 - 11 - 4 - 7 - 2 - 9\\
+    6. & 7 - 3 - 7 - 4 - 8 - 11 - 9 - 2 - 9\\
+    7. & 7 - 8 - 4 - 7 - 11 - 2 - 9 - 2 - 3\\
+    8. & 3 - 7 - 11 - 10 - 9 - 2 - 9 - 4\\
+    9. & 7 - 11 - 2 - 6 - 7 - 8\\
+    10.& 4 - 11 - 5 - 2\\
+    11.& 7 - 3 - 11 - 4 - 8 - 7 - 2\\
+    12.& 7 - 3 - 4 - 8 - 3 - 2 - 9\\
+    13.& 6 - 3 - 4 - 8 - 3 - 10\\
+    14.& 7 - 3 - 1 - 10 - 11 - 7\\
+    15.& 7 - 11 - 8 - 4 - 7 - 8 - 9 - 2 - 6 - 2\\
+    16.& 7 - 4 - 8 - 5 - 9 - 2 - 9\\
+    17.& 11 - 7 - 11 - 10\\
+    18.& 7 - 3 - 4 - 8 - 11 - 10 - 9 - 2\\
+    19.& 7 - 11 - 10 - 2 - 9 - 4 - 8\\
+    20.& 7 - 4 - 8 - 7 - 3 - 1 - 3\\
+    21.& 7 - 11 - 10 - 2 - 9\\
+    22.& 7 - 3 - 11 - 10 - 2\\
+    23.& 3 - 4 - 1 - 3 - 8 - 4 - 11\\
+    24.& 7 - 11 - 4 - 8 - 3 - 9 - 2 - 9\\
+    25.& 7 - 4 - 8 - 3 - 2 - 9 - 8 - 4 - 11\\
+    26.& 7 - 4 - 8 - 11 - 7 - 3 - 2 \\
+    27.& 7 - 3 - 4 - 8 - 11 - 7\\
+    28.& 6 - 7 - 8 - 4 - 7 - 8 - 11 - 4 - 2\\
+    29.& 7 - 11 - 7 - 3 - 11 - 8 - 4 - 8 - 7\\
+    30.& 3 - 7 - 4\\
     \\
   \end{tabular}
-  \caption{Gaze transitions of 30 subjects among the 11 AOIs in the image (see Figure \ref{fig:aoi}).}
+  \caption{Gaze transitions of the 30 subjects among the 11 AOIs in the image (see Figure \ref{fig:aoi}).}
   \label{tab:seq}
 \end{table}
 
@@ -289,9 +287,10 @@ By dividing the $H_{max}$, the visual entropies of different pages with differen
 
 $$H_{relative}~=~\frac{H}{H_{max}}$$
 
-Given this method, entropy can inform us of the certainty of the attentional shifts between AOIs. We expected that the entropy of a good page would have a smaller value. However, the result was disappointing. Based on the 3s eye tracking data, The correlation between the entropies and the aesthetic scores is 0.1585, and the two classes' ANOVA P-value is 0.4741.
+Given this method, entropy can inform us of the certainty of the attentional shifts between AOIs. We expected that the entropy of a good page would have a smaller value. However, the result was disappointing. Based on the 3s eye tracking data, The correlation between the entropies and the aesthetic scores was 0.1585, and the two classes' ANOVA P-value was 0.4741.
 
 \begin{table}[H]
+\centering
 \begin{tabular}{lrrrrr}
   Source&SS&df&MS&F&Prob$>$F\\ \hline
   Groups&0.00166&1&0.00166&0.52&0.4741\\
@@ -305,13 +304,13 @@ Given this method, entropy can inform us of the certainty of the attentional shi
 The failure of the entropy based on AOI Markov chain might have the following two reasons:
 \begin{itemize}
   \item The first-order Markov chain might be an over-simplified model. However, increasing the order of the chain requires an exponentially larger data set.
-  \item Relevant information was lost and some errors was introduced in the clustering and the default clustering algorithm in tobii studio was not smart enough to avoid incorrect clusters.
+  \item Relevant information was lost and some errors were introduced in the clustering and the default clustering algorithm in tobii studio was not smart enough to avoid incorrect clusters.
 \end{itemize}
 
 \subsubsection{Entropy in heatmap}
 Entropy based on Markov chain regards eye movements as a serially-related events of eye fixations and saccades.
 
-Here we introduce a new entropy metric based on the heatmap, which is the best-known visualization technique for eye tracking studies\cite{Nielsen2010}. In contrast to the gaze chain, heatmap has no information about the order of fixations. This means the new entropy metric assumes that all of the gazing events are independent.
+Here we introduce a new entropy metric based on the heatmap, which is the best-known visualization technique for eye tracking studies \citep{Nielsen2010}. In contrast to the gaze chain, heatmap has no information about the order of fixations. This means the new entropy metric assumes that all of the gazing events are independent.
 
 \begin{figure}[H]
   \centering
@@ -335,13 +334,14 @@ For a single fixation $(x_0, y_0, d)$, where $x$ is the horizontal position, $y$
 The expression of the kernel is
 $$d\cdot e^{-\frac{(x-x_0)^2 + (y-y_0)^2}{2\sigma^2}}$$
 Where $\sigma$ is the standard deviation of the kernel.
-Notice that the expression is not the standard normalized gauss distribution as the model will be normalized finally to make sure the total probability $\sum\sum P(X,Y) = 1 $.
+Notice that the expression is not the standard normalized gauss distribution as the model will be normalized in the end to make sure the total probability $\sum\sum P(X,Y) = 1 $.
 
-Placing a proper-sized Gaussian at a fixation is also reasonable given the fact that the fixation is actually a round area corresponding to the fovea. In addition, the fixation in reality is not absolutely fixed due to the fixational movements\cite{Martinez2004}. The mixture model also tolerates the unavoidable measurement error of the eye tracker. Figure \ref{fig:hm} is a typical heatmap with $\sigma=30px$.
+Placing a proper-sized Gaussian at a fixation is also reasonable given the fact that the fixation is actually a round area corresponding to the fovea. In addition, the fixation in reality is not absolutely fixed due to the fixational movements \citep{Martinez2004}. The mixture model also tolerates the unavoidable measurement error of the eye tracker. Figure \ref{fig:hm} is a typical heatmap with $\sigma=30px$.
 
 The visual entropies of 40 pages based on their heatmaps turned out to be negatively correlated with their aesthetic scores. Pearson correlation r= -0.5412. ANOVA F = 15.79 P = 0.0003. The result is significant.
 
 \begin{table}[H]
+\centering
 \begin{tabular}{lrrrrr}
   Source&SS&df&MS&F&Prob$>$F\\ \hline
   Groups&1.15861&1&1.15861&15.79&0.0003\\
@@ -352,7 +352,7 @@ The visual entropies of 40 pages based on their heatmaps turned out to be negati
 \label{tab:ANOVA-vae-dw}
 \end{table}
 
-Present results show that the visual entropy based on heatmap is the most promising index to predict a web page's aesthetic score. heatmap sometimes is also referred to as attention map. So we name this matric visual attention entropy (VAE).
+Present results show that the visual entropy based on heatmap is the most promising index to predict a web page's aesthetic score. heatmap sometimes is also sometimes referred to as attention map. So we name this matric visual attention entropy (VAE).
 
 \subsubsection{Relative VAE}
 There is a defect with VAE as a metric. VAE is negatively correlated with aesthetics judgements. However, an absolutely lower VAE does not necessary mean a very high aesthetic quality. For instance, a web page with very little content may result in a very low VAE. On the other hand, a web page containing many objects may have relatively high VAE. This certainly does not mean that the former is better than the latter. Theoretically, the VAEs of the pages with different contents are not comparable to each other.
@@ -369,9 +369,10 @@ rVAE = \frac{VAE}{bVAE}
 \label{formula:rvae}
 \end{equation}
 
-Compared to VAE, The performance of rVAE was significantly improved, the Pearson correlations are increased: from r= -0.54 to r= -0.66. ANOVA F=26.84 with P-value=0.000008.
+Compared to VAE, The performance of rVAE was significantly improved, the Pearson correlations increased from r= -0.54 to r= -0.66. ANOVA F=26.84 with P-value=0.000008.
 
 \begin{table}[H]
+\centering
 \begin{tabular}{lrrrrr}
   Source&SS&df&MS&F&Prob$>$F\\ \hline
   Groups&0.00336&1&0.00336&26.84&7.53E-06\\
@@ -382,9 +383,10 @@ Compared to VAE, The performance of rVAE was significantly improved, the Pearson
 \label{tab:ANOVA-rvae-dw}
 \end{table}
 
-The formula \ref{formula:rvae} indicates that the higher the bVAE, the lower the rVAE, therefore demonstrating the aesthetics. This is not fully true, however, and in reality the higher bVAE may result in possibly a much higher VAE, since the two indices are significantly correlated (r = 0.77). see Table \ref{tab:corr}
+The formula \ref{formula:rvae} indicates that the higher the bVAE, the lower the rVAE, therefore demonstrating the aesthetics. This is not fully true, however, and in reality the higher bVAE may result in possibly a much higher VAE, since the two indices are significantly correlated (r = 0.77, see Table \ref{tab:corr}). If bVAE is regarded as the signal in a channel of communication, rVAE minus 1 is actually the Noise-to-Signal ratio.
 
 \begin{table}[H]
+\centering
 \begin{tabular}{l|rrrrrr}
         &score&fixNum&VAE&bVAE&rVAE\\ \hline
   score &1&0.33&\bfseries{-0.54}&-0.13&\bfseries{-0.66}\\
@@ -397,33 +399,33 @@ The formula \ref{formula:rvae} indicates that the higher the bVAE, the lower the
 \label{tab:corr}
 \end{table}
 
-The analysis shows that aesthetic score is weakly correlated with Number of Fixation (r=0.33). So the good pages are generally have more fixations (interesting points). And bVAE is also positively correlated with Number of Fixation (r=0.61). This implies the good web pages generally are not based on lower bVAEs. Those facts may also explain why bVAE has ignorable linear correlation with the aesthetic score (r=-0.11). Figure \ref{fig:bvae} shows bVAE has no difference between the good and bad pages.
+The analysis shows that aesthetic score is weakly correlated with Number of Fixation (r=0.33). So the good pages are generally have more fixations (interesting points). And bVAE is also positively correlated with Number of Fixation (r=0.61). This implies the good web pages generally are not based on lower bVAEs. Those facts may also explain why bVAE has ignorable linear correlation with the aesthetic score (r=-0.13). Figure \ref{fig:bvae} shows bVAE has no difference between the good and bad pages.
 
 \begin{figure}[H]
   \centering
-  \includegraphics [width=\columnwidth]{fig_bvae.pdf}
-  \caption{Boxplot of 30 individual VAEs on each of the 40 webpages. The 40 pages are sorted by their scores, from low to high. The red lines in the boxes represent the bVAEs (means).  There is no apparent difference between the good and the bad pages}
+  \includegraphics [width=1\columnwidth]{fig_bvae.pdf}
+  \caption{Boxplots of the 30 individual VAEs on each of the 40 webpages. The 40 pages are sorted by their scores, from low to high. The red lines in the boxes represent the bVAEs (means).  There is no apparent difference between the good and the bad pages}
   \label{fig:bvae}
 \end{figure}
 
 %\balance{}
 \begin{figure*}
   \centering
-  \includegraphics [width=1.94\columnwidth]{fig_box.pdf}
+  \includegraphics [width=1.1\columnwidth]{fig_box.pdf}
   \caption{Boxplot of VAE (left) and rVAE (right). Apparently, the rVAEs more significantly separate the two classes.}
   \label{fig:box}
 \end{figure*}
 
 \begin{figure*}
   \centering
-  \includegraphics [width=2\columnwidth]{fig_with-score.pdf}
+  \includegraphics [width=1.1\columnwidth]{fig_with-score.pdf}
   \caption{The scatter plots of 40 pages over VAE (left) and rVAE (right). The point cloud in the right plot appears more significantly skewed.}
   \label{fig:with-score}
 \end{figure*}
 
 \begin{figure*}
   \centering
-  \includegraphics [width=2.1\columnwidth]{fig_outlier.jpg}
+  \includegraphics [width=\columnwidth]{fig_outlier.jpg}
   \caption{The left is one of the outlier pages (point 24 in figure \ref{fig:with-score}). If you display it on full screen, you may feel your eyes a little strained with selection pressure. As a comparison, the right is a revised version, in which some local saliencies have been adjusted. You may feel your eyes slightly relaxed.}
   \label{fig:out}
 \end{figure*}
@@ -434,13 +436,11 @@ Figure \ref{fig:box} is the ANOVA boxplots of VAE and rVAE. Figure \ref{fig:with
 
 \subsection{Outlier}
 
-Comparing the two scatter plots in Figure \ref{fig:with-score}, we find that generally the points with higher scores (above 0.5) move slightly to the left, while the points with lower scores skew right. rVAE matric makes them more separable. However, the metric alone is not able to fully explain the variation of the aesthetic sores of the pages. There are still some misclassified cases. An outlier (see the dot tagged 24) extremely deviated from the general tendency. Though it has an above-average score, its VAE and rVAE are quite high.
+Comparing the two scatter plots in Figure \ref{fig:with-score}, we find that generally the points with higher scores (above 0.5) move slightly to the left, while the points with lower scores skew right. The rVAE metric makes them more separable. However, the metric alone is not able to fully explain the variation of the aesthetic scores. There are still some misclassified cases. An outlier (see the dot tagged 24) extremely deviated from the general tendency. Though it has an above-average score, its VAE and rVAE are quite high.
 
-Checking the original image of the page (see Figure \ref{fig:out} left), we have to say that this is a not-bad-looking webpage with some appealing features, such as nice pictures, colors, symmetrical layout and so on. From a designer's point of view, however, it still has room for improvement. If you display it on full screen, you can feel your eyes a little strained with selection pressure. This may be attributed to some competitive visual saliencies in peripheral areas of the view. Figure \ref{fig:out} right is a slightly revised version of the page. It demonstrates how trivially adjusted local contrasts can make different overall impression. Visual attention is essentially affected by bottom-up, low-level image features such as edge contrast or complexity.
+Checking the original image of the page (see Figure \ref{fig:out} left), we have to say that this is a not-bad-looking webpage with some appealing features, such as nice pictures, colors, symmetrical layout and so on. From a designer's point of view, however, it still has room for improvement. If you display it on full screen, you can feel your eyes a little strained with selection pressure. This may be attributed to some competitive visual saliencies in peripheral areas of the view. Figure \ref{fig:out} (right) is a slightly revised version of the page. It demonstrates how trivially adjusted local contrasts can make different overall impressions. Visual attention is essentially affected by bottom-up, low-level image features such as edge contrast or complexity.
 
-So, VAE and rVAE is still believed an influential factor of aesthetics in this case. The high VAE and rVAE in this case has exactly captured the unpleasant in observers' eyes, rather than an error.
-
-\clearpage
+So, VAE and rVAE is believed a universally influential factor of webpage aesthetics. The high VAE and rVAE in this case has exactly captured the unpleasant in observers' eyes, rather than an error.  Figure \ref{fig:out} right is a slightly revised version of the page. It demonstrates how trivially adjusted local contrasts can make a different overall impression.
 
 \subsection{The stability of VAE}
 
@@ -451,9 +451,9 @@ Figure \ref{fig:with-t} visualizes how the VAEs and rVAEs of the 40 pages change
 
 \begin{figure}[H]
   \centering
-  \includegraphics [width=\columnwidth]{fig_vae-t.pdf}
-  \includegraphics [width=\columnwidth]{fig_rvae-t.pdf}
-  \caption{The VAEs (top) and the rVAEs (bottom) of the 40 pages gradually stabilize over time. The blue curves represent the "good" pages. The red curves represent the"bad" pages.  The good pages generally yield lower VAE and rVAE values. The two groups  become more separated at the end.
+  \includegraphics [width=0.85\columnwidth]{fig_vae-t.pdf}
+  \includegraphics [width=0.85\columnwidth]{fig_rvae-t.pdf}
+  \caption{The VAEs (top) and the rVAEs (bottom) of the 40 pages gradually stabilize over time. The blue curves represent the "good" pages. The red curves represent the "bad" pages. The good pages generally yield lower VAE and rVAE values. The two groups  become more separated towards the end.
 }
   \label{fig:with-t}
 \end{figure}
@@ -463,18 +463,18 @@ Figure \ref{fig:corr-t} visualizes how the correlations between the entropies an
 
 \begin{figure}[H]
   \centering
-  \includegraphics [width=\columnwidth]{fig_corr_t.pdf}
-  \caption{ The correlations between the entropies and the aesthetic scores. become more and more significant over the timeline. It is clear that rVAEs consistently sit below the VAEs after 1000 ms. The tendencies show that both curves, especially the rVAEs, could perform better, if the duration were longer than 3000 ms.}
+  \includegraphics [width=0.85\columnwidth]{fig_corr_t.pdf}
+  \caption{ The correlations between the entropies and the aesthetic scores become more and more significant over time. It is clear that rVAEs consistently sit below the VAEs after 1000 ms. The tendencies show that both curves, especially the rVAEs, could perform better, if the duration were longer than 3000 ms.}
   \label{fig:corr-t}
 \end{figure}
 
-Figure \ref{fig:with-user} visualizes how the correlations between the entropies and the aesthetics become more significant with the increasing numbers of subjects. The sample sets of subjects are enlarged one by one, sized 2, 3, 4... 29, generated at random from the total 30 subjects.
+Figure \ref{fig:with-user} visualizes how the correlations between the entropies and the aesthetics become more significant with the increasing numbers of subjects. The sample sets of subjects are enlarged one by one, sized 2, 3, 4... 29, randomly picked from the total 30 subjects.
 
 It seems the larger the number of subjects, the stronger the correlations. Adding more subjects is always welcome if without considering the limits of time and money.
 
 \begin{figure}[H]
   \centering
-  \includegraphics [width=\columnwidth]{fig_user.pdf}
+  \includegraphics [width=0.85\columnwidth]{fig_user.pdf}
   %\includegraphics [width=80mm]{fig_vae_user.jpg}
   \caption{the correlations between the entropies and the aesthetic scores become more significant with the increasing numbers of subjects. The performance could be better if the number of subjects were larger than 30.}
   \label{fig:with-user}
@@ -486,8 +486,8 @@ Figure \ref{fig:with-sigma} visualizes how the correlations changing with the si
 
 \begin{figure}[H]
   \centering
-  \includegraphics [width=\columnwidth]{fig_sigma.pdf}
-  \caption{ The correlations smoothly change with the value of $\sigma$. The performances of both VAE and rVAE are stably approaching their maxima in a rather wide range of the $\sigma$. For VAE, from 20px-60px, the correlation coefficient stays below -0.5. For rVAE, from 10px-120px, the correlation coefficient stays below -0.6 and the curve reaches its extremum at about 40px.}
+  \includegraphics [width=0.85\columnwidth]{fig_sigma.pdf}
+  \caption{ The correlations smoothly change with the value of $\sigma$. The performances of both VAE and rVAE are stably approaching their maxima in a rather wide range of the $\sigma$. For VAE, from 20px to 60px, the correlation coefficient stays below -0.5. For rVAE, from 10px to 120px, the correlation coefficient stays below -0.6 and the curve reaches its extremum at about 40px.}
   \label{fig:with-sigma}
 \end{figure}
 
@@ -496,18 +496,17 @@ And evidently, their performances could be better, if with a longer tracking tim
 
 \section{Discussion and Conclusion}
 \label{sec:dis}
-The experiment demonstrated that our aesthetic judgments to webpages do relate to our eye movement behaviors. Shannon entropy measure was tested on two aspects of the eye tracking data: gaze sequence and heat map. The entropy in heat map, VAE, was shown to be predictive of aesthetic judgements of the subjects, while the entropy in gaze series (Markov chain) was not. VAE as the entropy of visual attention can be interpreted as the chaos in allocating limited attentional resource. Its improved version, rVAE, has significant correlation (r = -0.65) with our perceived aesthetics. This single metric alone can predict whether a webpage aesthetically pleasing or not to a certain degree.
+The experiment demonstrated that our aesthetic judgments of webpages do relate to our eye movement behaviors. Shannon entropy measure was tested on two aspects of the eye tracking data: gaze sequence and heat map. The entropy in heat map, VAE, was shown to be predictive of aesthetic judgements of the subjects, while the entropy in gaze series (Markov chain) was not. VAE as the entropy of visual attention can be interpreted as the chaos in allocating limited attentional resource. Its improved version, rVAE, has significant correlation (r = -0.65) with our perceived aesthetics. This single metric alone can predict whether a webpage is aesthetically pleasing or not to a certain degree.
 
 The success of VAE is at least partially attributable to interpolation with Gaussians, in the belief that the fixation distribution is continuous. And projecting the fixations during all the 3s on a single plane makes the data points denser. The failure of the entropy in gaze sequence is possibly due to the extra temporal dimension making the data points much sparser. It is difficult to conclude at this point that temporal information is irrelevant to our aesthetic judgements. Perhaps in future work a more informative model can be found to solve this part of the problem.
 
-A lower VAE can be interpreted to mean that we pay less effort in eye orientation, searching, and less distraction in viewing. In other word, it has lower perceptual or attentional load.
-The evidence that aesthetically pleasing pages have lower VAEs supports the fluency hypothesis\cite{Reber2004}, and somewhat explains why "what is beautiful is usable"\cite{Tractinsky2000}. Or, ¡°poor usability lowers ratings on perceived aesthetics¡±\cite{Tuch2012Is}.
+A lower VAE can be interpreted to mean that there is less effort in eye orientation, searching, and less distraction in viewing. In other word, it has lower perceptual or attentional load.
+The evidence that aesthetically pleasing pages have lower VAEs supports the fluency hypothesis \citep{Reber2004}, and somewhat explains why "what is beautiful is usable" \citep{Tractinsky2000}. Or, "poor usability lowers ratings on perceived aesthetics" \citep{Tuch2012Is}.
 
-VAE is based on specific information in eye fixations. As a new objective and quantitative index of eye tracking data, it is surely not merely a metric for aesthetics. VAE in nature are more related to our perceptual and motor-control ability. Visual gazing has functional similarity to mouse-pointing. This explains why some visual design principles for eye guidance are quite similar to Fitts' law\cite{MacKenzie1992}.In essence, rVAE can be regarded as an estimate of the Signal-to-Noise ratio. rVAE can be interpreted as using the lowest possible VAE to perceive as much useful information (noise free signal) as possible in the constraint of the display (bandwidth).  This explanation is in line with the aesthetic principle, "Maximum effect for minimum means"\cite{Hekkert2006}, which is rooted in evolutionary aesthetics\cite{Shimamura2012}. The theory argues that the basic aesthetic preferences of Homo sapiens have evolved in order to enhance survival and reproductive success. rVAE has potential to be used more generally in all the fields of visual design.
+VAE is based on specific information in eye fixations. As a new objective and quantitative index of eye tracking data, it is surely not merely a metric for aesthetics. VAE in nature are more related to our perceptual and motor-control ability. Visual gazing has functional similarity to mouse-pointing. This explains why some visual design principles for eye guidance are quite similar to Fitts' law \citep{MacKenzie1992}.
 
-Eye movements represent the collaborations of overt and covert attentions. Though we found that to predict a web page's aesthetics requires at least 1000 ms of eye-tracking data, it has been reported that our first impression of a webpage is formed as quickly as within 50-500 ms\cite{Lindgaard2006}. 50 ms is barely enough for a snapshot, and our eyes are still at their original positions. It implies that brain can make aesthetic judgements immediately upon the covert attention map formed by the visual residual after a mere 50-ms exposure.
+rVAE can be interpreted as using the lowest possible VAE to perceive as much useful information (noise free signal) as possible in the constraint of the display (bandwidth).  This explanation is in line with the aesthetic principle, "Maximum effect for minimum means" \citep{Hekkert2006}, which is rooted in evolutionary aesthetics \citep{Shimamura2012}. The theory argues that the basic aesthetic preferences of Homo sapiens have evolved in order to enhance survival and reproductive success. rVAE has potential to be used more generally in all the fields of visual design.
+
+Eye movements represent the collaborations of overt and covert attentions. Though we found that to predict a web page's aesthetics requires at least 1000 ms of eye-tracking data, it has been reported that our first impression of a webpage is formed as quickly as within 50-500 ms \citep{Lindgaard2006}. 50 ms is barely enough for a snapshot, and our eyes are still at their original positions. It implies that brain can make aesthetic judgements immediately upon the covert attention map formed by the visual residual after a mere 50-ms exposure.
 
 \section{Acknowledgements}
-
-\bibliographystyle{SIGCHI-Reference-Format}
-\bibliography{our_references}
