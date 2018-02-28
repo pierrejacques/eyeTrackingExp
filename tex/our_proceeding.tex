@@ -1,0 +1,189 @@
+\documentclass{sigchi}
+
+% Use this section to set the ACM copyright statement (e.g. for
+% preprints).  Consult the conference website for the camera-ready
+% copyright statement.
+
+% Copyright
+\CopyrightYear{2016}
+%\setcopyright{acmcopyright}
+\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+% DOI
+\doi{http://dx.doi.org/10.475/123_4}
+% ISBN
+\isbn{123-4567-24-567/08/06}
+%Conference
+\conferenceinfo{CHI'16,}{May 07--12, 2016, San Jose, CA, USA}
+%Price
+\acmPrice{\$15.00}
+
+% Use this command to override the default ACM copyright statement
+% (e.g. for preprints).  Consult the conference website for the
+% camera-ready copyright statement.
+
+%% HOW TO OVERRIDE THE DEFAULT COPYRIGHPT STRIP --
+%% Please note you need to make sure the copy for your specific
+%% license is used here!
+% \toappear{
+% Permission to make digital or hard copies of all or part of this work
+% for personal or classroom use is granted without fee provided that
+% copies are not made or distributed for profit or commercial advantage
+% and that copies bear this notice and the full citation on the first
+% page. Copyrights for components of this work owned by others than ACM
+% must be honored. Abstracting with credit is permitted. To copy
+% otherwise, or republish, to post on servers or to redistribute to
+% lists, requires prior specific permission and/or a fee. Request
+% permissions from \href{mailto:Permissions@acm.org}{Permissions@acm.org}. \\
+% \emph{CHI '16},  May 07--12, 2016, San Jose, CA, USA \\
+% ACM xxx-x-xxxx-xxxx-x/xx/xx\ldots \$15.00 \\
+% DOI: \url{http://dx.doi.org/xx.xxxx/xxxxxxx.xxxxxxx}
+% }
+
+% Arabic page numbers for submission.  Remove this line to eliminate
+% page numbers for the camera ready copy
+% \pagenumbering{arabic}
+
+% Load basic packages
+\usepackage{balance}       % to better equalize the last page
+\usepackage{graphics}      % for EPS, load graphicx instead
+\usepackage[T1]{fontenc}   % for umlauts and other diaeresis
+\usepackage{txfonts}
+\usepackage{mathptmx}
+\usepackage[pdflang={en-US},pdftex]{hyperref}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{textcomp}
+
+% Some optional stuff you might like/need.
+\usepackage{microtype}        % Improved Tracking and Kerning
+% \usepackage[all]{hypcap}    % Fixes bug in hyperref caption linking
+\usepackage{ccicons}          % Cite your images correctly!
+% \usepackage[utf8]{inputenc} % for a UTF8 editor only
+
+% If you want to use todo notes, marginpars etc. during creation of
+% your draft document, you have to enable the "chi_draft" option for
+% the document class. To do this, change the very first line to:
+% "\documentclass[chi_draft]{sigchi}". You can then place todo notes
+% by using the "\todo{...}"  command. Make sure to disable the draft
+% option again before submitting your final document.
+\usepackage{todonotes}
+
+% 我们自己的包
+\usepackage{booktabs}
+\usepackage{graphicx} %加载图片
+\usepackage{float} % 流动布局
+%\usepackage{hidelinks}{hyperref} % 隐藏目录链接的超链接格式
+\usepackage[none]{hyphenat} % 避免表格中的换行
+\usepackage{array}
+
+% Paper metadata (use plain text, for PDF inclusion and later
+% re-using, if desired).  Use \emtpyauthor when submitting for review
+% so you remain anonymous.
+\def\plaintitle{Predicting Webpage Aesthetics with Heatmap Entropy}
+\def\plainauthor{Zhenyu Gu, Chenhao Jin, Zhanxun Dong}
+\def\emptyauthor{}
+\def\plainkeywords{entropy; visual attention; eye tracking; aesthetics; web page}
+\def\plaingeneralterms{Documentation, Standardization}
+
+% llt: Define a global style for URLs, rather that the default one
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{
+    \def\UrlFont{\sf}
+  }{
+    \def\UrlFont{\small\bf\ttfamily}
+  }}
+\makeatother
+\urlstyle{leo}
+
+% To make various LaTeX processors do the right thing with page sizep.
+\def\pprw{8.5in}
+\def\pprh{11in}
+\special{papersize=\pprw,\pprh}
+\setlength{\paperwidth}{\pprw}
+\setlength{\paperheight}{\pprh}
+\setlength{\pdfpagewidth}{\pprw}
+\setlength{\pdfpageheight}{\pprh}
+
+% Make sure hyperref comes last of your loaded packages, to give it a
+% fighting chance of not being over-written, since its job is to
+% redefine many LaTeX commands.
+\definecolor{linkColor}{RGB}{6,125,233}
+\hypersetup{%
+  pdftitle={\plaintitle},
+% Use \plainauthor for final version.
+%  pdfauthor={\plainauthor},
+  pdfauthor={\emptyauthor},
+  pdfkeywords={\plainkeywords},
+  pdfdisplaydoctitle=true, % For Accessibility
+  bookmarksnumbered,
+  pdfstartview={FitH},
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=linkColor,
+  breaklinks=true,
+  hypertexnames=false
+}
+
+% create a shortcut to typeset table headings
+% \newcommand\tabhead[1]{\small\textbf{#1}}
+
+% End of preamble. Here it comes the document.
+\begin{document}
+
+\title{\plaintitle}
+
+\numberofauthors{4}
+\author{%
+  \alignauthor{Zhenyu Gu\\
+    \affaddr{Shanghai Jiao Tong University}\\
+    \affaddr{Shanghai, China}\\
+    \email{zygu@sjtu.edu.cn}}\\
+  \alignauthor{Chenhao Jin\\
+    \affaddr{Shanghai Jiao Tong University}\\
+    \affaddr{Shanghai, China}\\
+    \email{pierrejacques@sjtu.edu.cn}}\\
+  \alignauthor{Danni Chang\\
+    \affaddr{Shanghai Jiao Tong University}\\
+    \affaddr{Shanghai, China}\\
+    \email{dchang1@sjtu.edu.cn}}\\
+  \alignauthor{Zhanxun Dong\\
+    \affaddr{Shanghai Jiao Tong University}\\
+    \affaddr{Shanghai, China}\\
+    \email{dongzx@sjtu.epdu.cn}}\\
+}
+
+\maketitle
+
+\begin{abstract}
+Today, eye trackers are extensively used in user interface evaluations. However, it's still hard to analyze and interpret eye tracking data from the aesthetic point of view. To find quantitative links between eye movements and aesthetic experience, we eye-tracked 30 observers' initial landings for 40 webpages (each was displayed for 3 seconds). The webpages were also rated based on the observers' subjective aesthetic judgments.
+
+Shannon entropy was introduced to analyze the eye tracking data. The result shows that the heatmap entropy (visual attention entropy, VAE) is highly correlated with the observers' aesthetic judgements of the webpages. Its improved version, relative VAE (rVAE), has more significant correlation with the perceived aesthetics (r=-0.65, F= 26.84, P<0.0001). This single metric alone can distinguish between good and bad looking pages with about 85\% accuracy. Further investigation reveals that the performance of both VAE and rVAE became stable after 1 second. The curves indicate that their performances could be better if the tracking time were extended beyond 3 seconds.
+\end{abstract}
+
+\category{H.5.m.}{Information Interfaces and Presentation
+  (e.g. HCI)}{Miscellaneous}{}{}
+
+\keywords{\plainkeywords}
+
+\input{our_body}
+
+% BALANCE COLUMNS
+\balance{}
+
+% REFERENCES FORMAT
+% References must be the same font size as other body text.
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,48 @@
+Santella, A. Eye Tracking for Aesthetics: Unexplored Possibilities
+
+---
+
+Berlyne D E, 1971 Aesthetics and Psychobiology (New York: Appleton-Century-Crofts)
+
+Locher, P. (2006). The usefulness of eye movement recordings to subject an aesthetic episode with visual art to empirical scrutiny. Psychology Science, 48(2), 106
+
+Franke, I. S., Pannasch, S., Helmert, J. R., Rieger, R., Groh, R., & Velichkovsky, B. M. (2008). Towards attention-centered interfaces: An aesthetic evaluation of perspective with eye tracking. ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM), 4(3), 18
+
+Plumhoff, J. E., & Schirillo, J. A. (2009). Mondrian, eye movements, and the oblique effect. Perception, 38(5), 719-731
+
+Wallraven, C., Cunningham, D. W., Rigau, J., Feixas, M., & Sbert, M. (2009, May). Aesthetic appraisal of art-from eye movements to computers. In Computational aesthetics (pp. 137-144)
+
+Massaro, D., Savazzi, F., Di Dio, C., Freedberg, D., Gallese, V., Gilli, G., & Marchetti, A. (2012). When art moves the eyes: a behavioral and eye-tracking study. PloS one, 7(5), e37285
+
+Khalighy, S., Green, G., Scheepers, C., & Whittet, C. (2015). Quantifying the qualities of aesthetics in product design using eye-tracking technology. International Journal of Industrial Ergonomics, 49, 31-43
+
+Deng, L., & Poole, M. S. (2010). Affect in web interfaces: a study of the impacts of web page visual complexity and order. Mis Quarterly, 711-730
+
+Ivory, M., Sinha, R., and Hearst, M. Empirically Validated Web Page Design Metrics. In Proc. CHI (2001), 53¨C60
+
+Zheng, X., Chakraborty, I., Lin, J., and Rauschenberger, R. Correlating Low-level Image Statistics with Users¡¯ Rapid Aesthetic and Affective Judgments of Web Pages. In Proc. CHI (2009)
+
+Reinecke, K., Yeh, T., Miratrix, L., Mardiko, R., Zhao, Y., Liu, J., & Gajos, K. Z. (2013, April). Predicting users' first impressions of website aesthetics with a quantification of perceived visual complexity and colorfulness. In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (pp. 2049-2058). ACM
+
+Santella, A. Eye Tracking for Aesthetics: Unexplored Possibilities.
+
+Tole, J., Stephens, A., Vivaudou, M., Ephrath, A., & Young, L. (1983) Visual scanning behaviour and pilot workload. NASA CR-3717 technical report. MIT: Division of Health Sciences and Technology
+
+Gilland, J. (2008). Driving, eye-tracking and visual entropy: Exploration of age and task effects. University of South Dakota
+
+Hooge, I., & Camps, G. (2013). Scan path entropy and arrow plots: Capturing scanning behavior of multiple observers. Frontiers in Psychology, 4.
+
+Henderson, J. M., & Macquistan, A. D. (1993). The spatial distribution of attention following an exogenous cue. Attention, Perception, & Psychophysics, 53(2), 221-230
+
+Nielsen, Jakob. Pernice, Kara. (2010). "[9]Eyetracking Web Usability." New Rideres Publishing
+
+Martinez-Conde, S., Macknik, S. L., & Hubel, D. H. (2004). The role of fixational eye movements in visual perception. Nature reviews. Neuroscience, 5(3), 229
+
+MacKenzie, I. S. (1992). Fitts' law as a research and design tool in human-computer interaction. Human-computer interaction, 7(1), 91-139.
+
+Hekkert, P. (2006). Design aesthetics: principles of pleasure in design. Psychology science, 48(2), 157.
+
+Shimura, Arthur P.; Palmer, Stephen E. (January 2012). Aesthetic Science: Connecting Minds, Brains, and Experience. Oxford University Press. p. 279.
+
+Lindgaard, G., Fernandes, G., Dudek, C., & Brown, J. (2006). Attention web designers: You have 50 milliseconds to make a good first impression!. Behaviour & information technology, 25(2), 115-126
+

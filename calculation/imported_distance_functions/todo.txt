@@ -1,3 +1,0 @@
-1，改良出三种纯粹的距离计算函数：levenshtein, common(normalized), common, LCS
-2，得到上述的每一种的分布 ----》 算准了储存起来
-3，考量分布的特性 包括分布的直方图，mean，MLE等
